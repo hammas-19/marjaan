@@ -7,10 +7,10 @@
       </section>
 
       <!-- Slide1 -->
-      <section class="py-5">
+      <section class="py-5 border-2 border-ebonyClay">
 
          <Desc&handle class="border-b-0" />
-         <Tabs class="border-2 min-h-[400px]">
+         <Tabs class="border-2">
             <template #cat1>
                Men
             </template>
@@ -18,10 +18,15 @@
                Ladiis
             </template>
             <template #category1>
-               <ProductSlider1 />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
+
+                  <ProductCard :product-data="productData" class="w-[280px]" />
+
+               </div>
+               <!-- <ProductSlider1 /> -->
             </template>
             <template #category2>
-               <ProductSlider2 />
+               <!-- <ProductSlider2 /> -->
             </template>
          </Tabs>
 
@@ -115,5 +120,87 @@
 </template>
 <script setup>
 const categories = ["Men", "Ladiis"];
-
+const productData = [
+   {
+      image: '/gridImages/collection4.webp',
+      name : 'Hammas'  
+   },
+   {
+      image: '/gridImages/collection3.webp',
+      name : 'Masood'  
+   },
+   {
+      image: '/gridImages/collection2.webp',
+      name : 'hamoodi'  
+   },
+   {
+      image: '/gridImages/collection4.webp',
+      name : 'Hammas'  
+   },
+   {
+      image: '/gridImages/collection3.webp',
+      name : 'Masood'  
+   },
+   {
+      image: '/gridImages/collection2.webp',
+      name : 'hamoodi'  
+   },
+   {
+      image: '/gridImages/collection4.webp',
+      name : 'Hammas'  
+   },
+   {
+      image: '/gridImages/collection3.webp',
+      name : 'Masood'  
+   },
+   {
+      image: '/gridImages/collection2.webp',
+      name : 'hamoodi'  
+   },
+   {
+      image: '/gridImages/collection4.webp',
+      name : 'Hammas'  
+   },
+   {
+      image: '/gridImages/collection3.webp',
+      name : 'Masood'  
+   },
+   {
+      image: '/gridImages/collection2.webp',
+      name : 'hamoodi'  
+   },
+   {
+      image: '/gridImages/collection4.webp',
+      name : 'Hammas'  
+   },
+   {
+      image: '/gridImages/collection3.webp',
+      name : 'Masood'  
+   },
+   {
+      image: '/gridImages/collection2.webp',
+      name : 'hamoodi'  
+   }
+]
+const productImages = [
+   '/gridImages/collection4.webp',
+   '/gridImages/collection3.webp',
+   '/gridImages/collection2.webp',
+   '/gridImages/collection5.webp',
+   '/gridImages/collection6.webp',
+   '/gridImages/collection2.webp'
+]
 </script>
+<style scoped>
+.main::-webkit-scrollbar {
+   display: none;
+}
+
+.main {
+   -ms-overflow-style: none;
+
+   scrollbar-width: none;
+
+}
+
+</style>
