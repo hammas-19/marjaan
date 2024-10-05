@@ -5,12 +5,14 @@
                 <button class="font-medium md:text-base text-xs  text-black md:px-8 px-3 md:py-1 py-[2px] rounded-full transition-all duration-300" :class="{ 'text-graphite bg-bisonHide': activeTab === 1 }"
                     @click="activeTab = 1">
                     <slot name="cat1"></slot>
-
                 </button>
                 <button class="font-medium md:text-base text-xs  text-black md:px-8 px-3 md:py-1 py-[2px] rounded-full transition-all duration-300" :class="{ 'text-graphite bg-bisonHide': activeTab === 2 }"
                     @click="activeTab = 2">
                     <slot name="cat2"></slot>
-
+                </button>
+                <button class="font-medium md:text-base text-xs  text-black md:px-8 px-3 md:py-1 py-[2px] rounded-full transition-all duration-300" :class="{ 'text-graphite bg-bisonHide': activeTab === 3 }"
+                    @click="activeTab = 3">
+                    <slot name="cat3"></slot>
                 </button>
             </div>
         </div>
@@ -23,6 +25,10 @@
 
         <div v-if="activeTab === 2">
             <slot name="category2"></slot>
+
+        </div>
+        <div v-if="activeTab === 3">
+            <slot name="category3"></slot>
 
         </div>
 

@@ -10,25 +10,28 @@
       <section class="py-5">
 
          <!-- Desc & Handle -->
-          <ClientOnly>
-             <div class="max-w-7xl mx-auto  px-3 flex justify-between items-end md:pb-5 pb-3">
-                <div class="flex flex-col text-black">
-                   <span class="md:text-xl text-sm font-headings">Mixed</span>
-                   <h1 class="md:text-4xl text-xl font-titles">
-                      Best Sellers
-                     </h1>
-                  </div>
-                  <NuxtLink class="md:text-xl text-sm ">
-                     View All
-                  </NuxtLink>
+         <ClientOnly>
+            <div class="max-w-7xl mx-auto  px-3 flex justify-between items-end md:pb-5 pb-3">
+               <div class="flex flex-col text-black">
+                  <span class="md:text-xl text-sm font-headings">Mixed</span>
+                  <h1 class="md:text-4xl text-xl font-titles">
+                     Best Sellers
+                  </h1>
                </div>
-            </ClientOnly>
+               <NuxtLink class="md:text-xl text-sm ">
+                  View All
+               </NuxtLink>
+            </div>
+         </ClientOnly>
          <Tabs class="">
             <template #cat1>
-               Men's
+               T-Shirts
             </template>
             <template #cat2>
-               Unisex
+               Hoodies
+            </template>
+            <template #cat3>
+               SweatShirts
             </template>
             <template #category1>
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
@@ -41,6 +44,12 @@
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
                   <ProductCard :product-data="productDataUnisex" class="w-[280px]" />
                </div>
+            </template>
+            <template #category3>
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
+                  <ProductCard :product-data="productData" class="w-[280px]" />
+               </div>
+               <!-- <ProductSlider1 /> -->
             </template>
          </Tabs>
 
@@ -120,7 +129,7 @@
                   <span class="md:text-xl text-sm font-headings">Men's</span>
                   <h1 class="md:text-2xl text-xl font-headings">You May Like</h1>
                </div>
-               <NuxtLink to="/productsMen" class="md:text-xl text-sm">
+               <NuxtLink to="/ProductsTees" class="md:text-xl text-sm">
                   View All
                </NuxtLink>
 
