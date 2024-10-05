@@ -6,7 +6,7 @@
          <Hero />
       </section>
 
-      <!-- Slide1 -->
+      <!-- Creators Selected -->
       <section class="py-5">
 
          <!-- Desc & Handle -->
@@ -15,7 +15,7 @@
                <div class="flex flex-col text-black">
                   <span class="md:text-xl text-sm font-headings">Mixed</span>
                   <h1 class="md:text-4xl text-xl font-titles">
-                     Best Sellers
+                     Creators Selected
                   </h1>
                </div>
                <NuxtLink class="md:text-xl text-sm ">
@@ -56,28 +56,56 @@
       </section>
 
       <!--Display 01  -->
-      <section class="max-w-7xl mx-auto md:px-6 px-3 md:py-10 py-5">
+      <section id="collections" class="max-w-7xl mx-auto md:px-6 px-3 md:py-10 py-5">
 
          <Display1 />
 
       </section>
 
-      <!-- Slider 02 -->
+      <!-- BestSellers -->
       <section class="py-5">
 
-         <Desc&handle class="border-b-0" />
-         <Tabs>
+         <!-- Desc & Handle -->
+         <ClientOnly>
+            <div class="max-w-7xl mx-auto  px-3 flex justify-between items-end md:pb-5 pb-3">
+               <div class="flex flex-col text-black">
+                  <span class="md:text-xl text-sm font-headings">Shop</span>
+                  <h1 class="md:text-4xl text-xl font-titles">
+                     Best Sellers
+                  </h1>
+               </div>
+               <NuxtLink class="md:text-xl text-sm ">
+                  View All
+               </NuxtLink>
+            </div>
+         </ClientOnly>
+         <Tabs class="">
             <template #cat1>
-               Hood
+               T-Shirts
             </template>
             <template #cat2>
-               Wood
+               Hoodies
+            </template>
+            <template #cat3>
+               SweatShirts
             </template>
             <template #category1>
-               <ProductSlider1 />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
+                  <ProductCard :product-data="productData" class="w-[280px]" />
+               </div>
+               <!-- <ProductSlider1 /> -->
             </template>
             <template #category2>
-               <ProductSlider2 />
+               <!-- <ProductSlider2 /> -->
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
+                  <ProductCard :product-data="productDataUnisex" class="w-[280px]" />
+               </div>
+            </template>
+            <template #category3>
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
+                  <ProductCard :product-data="productData" class="w-[280px]" />
+               </div>
+               <!-- <ProductSlider1 /> -->
             </template>
          </Tabs>
 

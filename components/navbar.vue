@@ -160,6 +160,10 @@ const NavbarLink = [
         name: "SweatShirts",
         href: "/ProductsSweats",
     },
+    {
+        name: "Collections",
+        href: "/#collections",
+    },
     // {
     //     name: "profile",
     //     href: "/profile/userProfile",

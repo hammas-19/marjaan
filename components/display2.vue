@@ -4,33 +4,49 @@
         <GridContainer image="/gridImages/collection1.webp" class="h-full min-w-full">
 
             <template #title>
-                hammas masood
+                T-Shirts
             </template>
             <template #slogan>
                 lets make it worth
             </template>
-            <template #item1>
+            <!-- <template #item1>
                 Hood
             </template>
             <template #item2>
                 <span refrence="/">Wood</span>
-            </template>
+            </template> -->
         </GridContainer>
 
         <GridContainer :content-left="false" image="/gridImages/collection5.webp" class="min-w-full h-full">
 
             <template #title>
-                hammas masood
+                Hoodies
             </template>
             <template #slogan>
                 lets make it worth
             </template>
-            <template #item1>
+            <!-- <template #item1>
                 Hood
             </template>
             <template #item2>
                 <span refrence="/">Wood</span>
+            </template> -->
+        </GridContainer>
+
+        <GridContainer :content-left="false" image="/gridImages/collection5.webp" class="min-w-full h-full">
+
+            <template #title>
+                SweatShirts
             </template>
+            <template #slogan>
+                lets make it worth
+            </template>
+            <!-- <template #item1>
+                Hood
+            </template>
+            <template #item2>
+                <span refrence="/">Wood</span>
+            </template> -->
         </GridContainer>
 
     </div>
