@@ -1,53 +1,12 @@
 <template>
     <div class="grid grid-cols-2 md:gap-5 gap-1 md:h-[calc(100vh-120px)] h-[calc(100vh-80px)]">
 
-        <GridContainer image="/gridImages/collection1.webp" class="h-full min-w-full">
-
-            <template #title>
-                T-Shirts
-            </template>
-            <template #slogan>
-                lets make it worth
-            </template>
-            <!-- <template #item1>
-                Hood
-            </template>
-            <template #item2>
-                <span refrence="/">Wood</span>
-            </template> -->
-        </GridContainer>
-
-        <GridContainer :content-left="false" image="/gridImages/collection5.webp" class="min-w-full h-full">
-
-            <template #title>
-                Hoodies
-            </template>
-            <template #slogan>
-                lets make it worth
-            </template>
-            <!-- <template #item1>
-                Hood
-            </template>
-            <template #item2>
-                <span refrence="/">Wood</span>
-            </template> -->
-        </GridContainer>
-
-        <GridContainer :content-left="false" image="/gridImages/collection5.webp" class="min-w-full h-full">
-
-            <template #title>
-                SweatShirts
-            </template>
-            <template #slogan>
-                lets make it worth
-            </template>
-            <!-- <template #item1>
-                Hood
-            </template>
-            <template #item2>
-                <span refrence="/">Wood</span>
-            </template> -->
-        </GridContainer>
+        <GridContainer :title="'Error 404ss'" :slogan="'lets make it worth'" :has-products="hasProducts" image="/gridImages/collection1.webp" class="h-full min-w-full" />
+        <GridContainer :title="'Error 404ss'" :slogan="'lets make it worth'" :has-products="hasProducts" image="/gridImages/collection2.webp" class="h-full min-w-full md:row-span-2" />
+        <GridContainer :title="'Error 404ss'" :slogan="'lets make it worth'" :has-products="hasProducts" image="/gridImages/collection3.webp" class="h-full min-w-full" />
 
     </div>
 </template>
+<script setup>
+const hasProducts = false
+</script>

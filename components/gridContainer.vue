@@ -9,22 +9,25 @@
             :class="contentLeft ? 'md:left-5 left-2' : 'md:right-5 right-2 text-right items-end'">
             
             <h1 class="md:text-3xl text-sm font-headings font-bold text-white">
-                <slot name="title"></slot>
-
+                {{ title }}
             </h1>
             <span class="text-white text-xs">
-                <slot name="slogan"></slot>
-
+                {{ slogan }}
             </span>
-            <NuxtLink :to="refrence" class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all duration-500 text-left hover:text-center rounded-md bg-white md:text-xl text-sm font-semibold">
+            <div v-if="hasProducts" class="flex gap-2 flex-wrap">
+            <span class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all text-left hover:text-center rounded-md bg-white md:text-xl text-base font-semibold">
                 <slot name="item1"></slot>
-
-            </NuxtLink>
-            <NuxtLink :to="refrence" class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all duration-500 text-left hover:text-center rounded-md bg-white md:text-xl text-sm font-semibold">
-
+            </span>
+            
+            <span class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all text-left hover:text-center rounded-md bg-white md:text-xl text-base font-semibold">
                 <slot name="item2"></slot>
-
-            </NuxtLink>
+            </span>
+            
+            <span class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all text-left hover:text-center rounded-md bg-white md:text-xl text-base font-semibold">
+                <slot name="item3"></slot>
+            </span>
+            
+            </div>
             
         </div>
 
@@ -37,10 +40,21 @@ defineProps({
         type: String,
         default: ""
     },
-
     contentLeft: {
         type: Boolean,
         default: true
+    },
+    hasProducts: {
+        type: Boolean,
+        default: true
+    },
+    title: {
+        type: String,
+        default: ''
+    },
+    slogan: {
+        type: String,
+        default: ''
     },
     refrence: {
         type: String,
