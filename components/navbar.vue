@@ -162,7 +162,7 @@ const NavbarLink = [
     },
     {
         name: "Collections",
-        href: "/#collections",
+        href: "/collections",
     },
     // {
     //     name: "profile",
