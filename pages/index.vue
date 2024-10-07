@@ -7,7 +7,7 @@
       </section>
 
       <!-- Creators Selected -->
-      <section class="py-5">
+      <section class="py-5 md:px-5 px-2">
 
          <!-- Desc & Handle -->
          <ClientOnly>
@@ -63,7 +63,7 @@
       </section>
 
       <!-- BestSellers -->
-      <section class="py-5">
+      <section class="py-5 md:px-5 px-2">
 
          <!-- Desc & Handle -->
          <ClientOnly>
