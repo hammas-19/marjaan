@@ -4,58 +4,20 @@
       <!-- Collections grid -->
       <div class="grid grid-cols-3 md:gap-3 gap-1 pb-5">
 
-        <div>
-          <h2 class="text-center pb-1 font-heading text-xs block md:hidden font-semibold text-mineShaft">
-            Errorss
+        <div v-for="(collection, cindex) in collections" :key="cindex">
+          <h2 class="text-center pb-2 font-heading text-xs block md:hidden font-semibold text-mineShaft">
+            {{ collection.title }}
           </h2>
           <div
-            class="relative bg-moss md:rounded-3xl rounded-md md:h-[280px] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all">
-            <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/w_terry.jpg?v=1676716713&width=1500"
-              class="object-cover h-full w-full" alt="">
+            class="relative bg-moss md:rounded-3xl h-[110px] rounded-md md:h-[280px] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all">
+            <img :src="collection.image" class="object-cover h-full w-full" alt="">
             <div class="md:block hidden">
               <div
                 class="absolute bottom-5 left-5 flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
-                <h1 class="md:text-3xl text-xl font-headings md:font-bold font-medium text-white">Women Hahaha</h1>
+                <h1 class="md:text-3xl text-xl font-headings md:font-bold font-medium text-white">{{ collection.title }}
+                </h1>
                 <span class="text-white md:text-lg text-base">
-                  Your State of Mind
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2 class="text-center pb-1 font-heading text-xs block md:hidden font-semibold text-mineShaft">
-            Errorss
-          </h2>
-          <div
-            class="relative bg-moss md:rounded-3xl rounded-md md:h-[280px] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all">
-            <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/w_terry.jpg?v=1676716713&width=1500"
-              class="object-cover h-full w-full" alt="">
-            <div class="md:block hidden">
-              <div
-                class="absolute bottom-5 left-5 flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
-                <h1 class="md:text-3xl text-xl font-headings md:font-bold font-medium text-white">Women Hahaha</h1>
-                <span class="text-white md:text-lg text-base">
-                  Your State of Mind
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2 class="text-center pb-1 font-heading text-xs block md:hidden font-semibold text-mineShaft">
-            Errorss
-          </h2>
-          <div
-            class="relative bg-moss md:rounded-3xl rounded-md md:h-[280px] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all">
-            <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/w_terry.jpg?v=1676716713&width=1500"
-              class="object-cover h-full w-full" alt="">
-            <div class="md:block hidden">
-              <div
-                class="absolute bottom-5 left-5 flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
-                <h1 class="md:text-3xl text-xl font-headings md:font-bold font-medium text-white">Women Hahaha</h1>
-                <span class="text-white md:text-lg text-base">
-                  Your State of Mind
+                  {{ collection.slogan }}
                 </span>
               </div>
             </div>
@@ -76,25 +38,16 @@
               SweatShirts
             </template>
             <template #category1>
-              <div v-for="items in products" class="max-h-fit max-w-xs border-2 border-black">
-
-                <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
-
-              </div>
+              T-shirt
+              <ProductCard :product-data="productData" :for-collection="true" class="" />
             </template>
             <template #category2>
-              <div v-for="items in products" class="max-h-fit max-w-xs flex flex-col gap-3 items-center">
-
-                <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
-
-              </div>
+              Hoodies
+              <ProductCard :product-data="productData" :for-collection="true" class="" />
             </template>
             <template #category3>
-              <div v-for="items in products" class="max-h-fit max-w-xs flex flex-col gap-3 items-center">
-
-                <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
-
-              </div>
+                SweatShirts
+              <ProductCard :product-data="productData" :for-collection="true" class="" />
             </template>
           </CollectionTabs>
         </div>
@@ -121,5 +74,84 @@ const products = [
   'https://cdn.shopify.com/s/files/1/1752/8007/products/MoandIlon25_1_400x.jpg?v=1657358591',
   'https://cdn.shopify.com/s/files/1/1752/8007/products/MNSVelocitySleeveless_16_400x.jpg?v=1676670273',
 
+]
+const collections = [
+  {
+    title: 'NyctoPhylia',
+    slogan: 'Dark Rumours',
+    image: 'https://alphaleteathletics.com/cdn/shop/collections/m_better_in_black_2500x1050_crop_center.jpg?v=1725726009'
+  },
+  {
+    title: 'Aura',
+    slogan: 'Energy In MOtion',
+    image: 'https://alphaleteathletics.com/cdn/shop/collections/lifestyle_2500x1050_crop_center.jpg?v=1725725985'
+  },
+  {
+    title: 'Amlify',
+    slogan: 'Never Duplicated',
+    image: 'https://alphaleteathletics.com/cdn/shop/files/Hero_Image-2.jpg?v=1725654353&width=2000'
+  }
+]
+const productData = [
+  {
+    image: '/gridImages/collection4.webp',
+    name: 'Hammas'
+  },
+  {
+    image: '/gridImages/collection3.webp',
+    name: 'Masood'
+  },
+  {
+    image: '/gridImages/collection2.webp',
+    name: 'hamoodi'
+  },
+  {
+    image: '/gridImages/collection4.webp',
+    name: 'Hammas'
+  },
+  {
+    image: '/gridImages/collection3.webp',
+    name: 'Masood'
+  },
+  {
+    image: '/gridImages/collection2.webp',
+    name: 'hamoodi'
+  },
+  {
+    image: '/gridImages/collection4.webp',
+    name: 'Hammas'
+  },
+  {
+    image: '/gridImages/collection3.webp',
+    name: 'Masood'
+  },
+  {
+    image: '/gridImages/collection2.webp',
+    name: 'hamoodi'
+  },
+  {
+    image: '/gridImages/collection4.webp',
+    name: 'Hammas'
+  },
+  {
+    image: '/gridImages/collection3.webp',
+    name: 'Masood'
+  },
+  {
+    image: '/gridImages/collection2.webp',
+    name: 'hamoodi'
+  },
+  {
+    image: '/gridImages/collection4.webp',
+    name: 'Hammas'
+  },
+  {
+    image: '/gridImages/collection3.webp',
+    name: 'Masood'
+  },
+  {
+    image: '/gridImages/collection2.webp',
+    name: 'hamoodi'
+  }
 ]
 </script>

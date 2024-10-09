@@ -21,17 +21,17 @@
       </div>
     </div>
 
-    <div v-if="activeTab === 1" class="grid grid-cols-2 md:grid-cols-4 md:gap-5 gap-2">
+    <div v-if="activeTab === 1" class="flex flex-wrap justify-center items-center sm:gap-3 gap-2 gap-y-5 md:gap-6 justify-items-center">
 
       <slot name="category1"></slot>
 
     </div>
 
-    <div v-if="activeTab === 2" class="grid grid-cols-2 md:grid-cols-4 md:gap-5 gap-2">
+    <div v-if="activeTab === 2" class="flex flex-wrap justify-center items-center sm:gap-3 gap-2 gap-y-5 md:gap-6 justify-items-center">
       <slot name="category2"></slot>
 
     </div>
-    <div v-if="activeTab === 3" class="grid grid-cols-2 md:grid-cols-4 md:gap-5 gap-2">
+    <div v-if="activeTab === 3" class="flex flex-wrap justify-center items-center sm:gap-3 gap-2 gap-y-5 md:gap-6 justify-items-center">
       <slot name="category3"></slot>
 
     </div>
