@@ -3,17 +3,17 @@
     <div class="max-w-7xl mx-auto md:px-6 px-3 md:py-5 py-2 ">
       <!-- Collections grid -->
       <div class="grid grid-cols-3 md:gap-3 gap-1 pb-5">
-        
+
         <div>
           <h2 class="text-center pb-1 font-heading text-xs block md:hidden font-semibold text-mineShaft">
             Errorss
           </h2>
-        <div
+          <div
             class="relative bg-moss md:rounded-3xl rounded-md md:h-[280px] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all">
             <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/w_terry.jpg?v=1676716713&width=1500"
               class="object-cover h-full w-full" alt="">
-              <div class="md:block hidden">
-                <div
+            <div class="md:block hidden">
+              <div
                 class="absolute bottom-5 left-5 flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
                 <h1 class="md:text-3xl text-xl font-headings md:font-bold font-medium text-white">Women Hahaha</h1>
                 <span class="text-white md:text-lg text-base">
@@ -21,18 +21,18 @@
                 </span>
               </div>
             </div>
-        </div>
+          </div>
         </div>
         <div>
           <h2 class="text-center pb-1 font-heading text-xs block md:hidden font-semibold text-mineShaft">
             Errorss
           </h2>
-        <div
+          <div
             class="relative bg-moss md:rounded-3xl rounded-md md:h-[280px] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all">
             <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/w_terry.jpg?v=1676716713&width=1500"
               class="object-cover h-full w-full" alt="">
-              <div class="md:block hidden">
-                <div
+            <div class="md:block hidden">
+              <div
                 class="absolute bottom-5 left-5 flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
                 <h1 class="md:text-3xl text-xl font-headings md:font-bold font-medium text-white">Women Hahaha</h1>
                 <span class="text-white md:text-lg text-base">
@@ -40,18 +40,18 @@
                 </span>
               </div>
             </div>
-        </div>
+          </div>
         </div>
         <div>
           <h2 class="text-center pb-1 font-heading text-xs block md:hidden font-semibold text-mineShaft">
             Errorss
           </h2>
-        <div
+          <div
             class="relative bg-moss md:rounded-3xl rounded-md md:h-[280px] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all">
             <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/w_terry.jpg?v=1676716713&width=1500"
               class="object-cover h-full w-full" alt="">
-              <div class="md:block hidden">
-                <div
+            <div class="md:block hidden">
+              <div
                 class="absolute bottom-5 left-5 flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
                 <h1 class="md:text-3xl text-xl font-headings md:font-bold font-medium text-white">Women Hahaha</h1>
                 <span class="text-white md:text-lg text-base">
@@ -59,58 +59,49 @@
                 </span>
               </div>
             </div>
-        </div>
+          </div>
         </div>
 
       </div>
       <section>
-        <div class="md:py-10 py-2">
-          <Tabs>
+        <div class="md:py-6 py-2">
+          <CollectionTabs>
             <template #cat1>
-              Hood
+              T-Shirts
             </template>
             <template #cat2>
-              Wood
+              Hoodies
+            </template>
+            <template #cat3>
+              SweatShirts
             </template>
             <template #category1>
-              <!-- <ProductSlider1 /> -->
+              <div v-for="items in products" class="max-h-fit max-w-xs border-2 border-black">
+
+                <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
+
+              </div>
             </template>
             <template #category2>
-              <!-- <ProductSlider2 /> -->
+              <div v-for="items in products" class="max-h-fit max-w-xs flex flex-col gap-3 items-center">
+
+                <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
+
+              </div>
             </template>
-          </Tabs>
+            <template #category3>
+              <div v-for="items in products" class="max-h-fit max-w-xs flex flex-col gap-3 items-center">
+
+                <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
+
+              </div>
+            </template>
+          </CollectionTabs>
         </div>
       </section>
 
       <!-- Gallery -->
-      <section class="max-w-7xl mx-auto px-2">
-        <div class="grid grid-cols-2 md:grid-cols-4 md:gap-5 gap-2">
 
-          <!-- The poster -->
-          <div
-            class="relative bg-moss rounded-3xl h-[calc(100vh-350px)] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
-
-            <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/w_terry.jpg?v=1676716713&width=1500"
-              class="object-cover h-full w-full" alt="">
-            <div
-              class="absolute bottom-5 left-5 flex flex-col gap-2 max-w-[250px] bg-graphite p-5 rounded-2xl bg-opacity-40 backdrop-blur-md">
-
-              <h1 class="text-6xl font-headings font-bold text-white">Women Hahaha</h1>
-              <span class="text-white text-lg">
-                Your State of Mind
-              </span>
-
-            </div>
-
-          </div>
-          <div v-for="items in products" class="max-h-fit max-w-xs flex flex-col gap-3 items-center">
-
-            <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
-
-          </div>
-
-        </div>
-      </section>
 
     </div>
   </div>
