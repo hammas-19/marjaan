@@ -1,39 +1,19 @@
 <template>
     <div class="bg-linen">
 
-        <section>
-            <div class="md:py-10 py-2">
-                <Tabs>
-                    <template #cat1>
-                        Hood
-                    </template>
-                    <template #cat2>
-                        Wood
-                    </template>
-                    <template #category1>
-                        <!-- <ProductSlider1 /> -->
-                    </template>
-                    <template #category2>
-                        <!-- <ProductSlider2 /> -->
-                    </template>
-                </Tabs>
-            </div>
-        </section>
-
         <!-- Gallery -->
-        <section class="max-w-7xl mx-auto px-2">
-            <div class="grid grid-cols-2 md:grid-cols-4 md:gap-5 gap-3">
-
+        <section class="max-w-7xl mx-auto px-2 py-10">
+            <div class="flex flex-wrap justify-center md:gap-5 gap-2">
                 <!-- The poster -->
                 <div
-                    class="relative bg-moss rounded-3xl h-[calc(100vh-350px)] w-full overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
+                    class="relative bg-moss rounded-3xl h-full max-h-[318px] w-full max-w-sm lg:max-w-lg overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
 
-                    <img src="https://cdn.shopify.com/s/files/1/1752/8007/collections/Mens_New_Arrivals_230314.jpg?v=1680971649&width=1500"
+                    <img src="https://alphaleteathletics.com/cdn/shop/files/Hero_Image-2.jpg?v=1725654353&width=2000"
                         class="object-cover h-full w-full" alt="">
                     <div
                         class="absolute bottom-5 left-5 flex flex-col gap-2 max-w-[250px] bg-graphite p-5 rounded-2xl bg-opacity-40 backdrop-blur-md">
 
-                        <h1 class="text-6xl font-headings font-bold text-white">Men in Mean</h1>
+                        <h1 class="text-6xl font-headings font-bold text-white">T-shirts</h1>
                         <span class="text-white text-lg">
                             Your State of Mind
                         </span>
@@ -41,11 +21,9 @@
                     </div>
 
                 </div>
-                <div v-for="items in products" class="max-h-fit max-w-xs flex flex-col gap-3 items-center">
 
-                    <ProductCardTest :image="items" class="h-full w-full hover:opacity-70 transition-all duration-300" />
+                <ProductCard :product-data="productData" :for-collection="true" class="" />
 
-                </div>
 
             </div>
         </section>
@@ -67,5 +45,67 @@ const products = [
     'https://cdn.shopify.com/s/files/1/1752/8007/products/MoandIlon25_1_400x.jpg?v=1657358591',
     'https://cdn.shopify.com/s/files/1/1752/8007/products/MNSVelocitySleeveless_16_400x.jpg?v=1676670273',
 
+]
+const productData = [
+    {
+        image: '/gridImages/collection4.webp',
+        name: 'Hammas'
+    },
+    {
+        image: '/gridImages/collection3.webp',
+        name: 'Masood'
+    },
+    {
+        image: '/gridImages/collection2.webp',
+        name: 'hamoodi'
+    },
+    {
+        image: '/gridImages/collection4.webp',
+        name: 'Hammas'
+    },
+    {
+        image: '/gridImages/collection3.webp',
+        name: 'Masood'
+    },
+    {
+        image: '/gridImages/collection2.webp',
+        name: 'hamoodi'
+    },
+    {
+        image: '/gridImages/collection4.webp',
+        name: 'Hammas'
+    },
+    {
+        image: '/gridImages/collection3.webp',
+        name: 'Masood'
+    },
+    {
+        image: '/gridImages/collection2.webp',
+        name: 'hamoodi'
+    },
+    {
+        image: '/gridImages/collection4.webp',
+        name: 'Hammas'
+    },
+    {
+        image: '/gridImages/collection3.webp',
+        name: 'Masood'
+    },
+    {
+        image: '/gridImages/collection2.webp',
+        name: 'hamoodi'
+    },
+    {
+        image: '/gridImages/collection4.webp',
+        name: 'Hammas'
+    },
+    {
+        image: '/gridImages/collection3.webp',
+        name: 'Masood'
+    },
+    {
+        image: '/gridImages/collection2.webp',
+        name: 'hamoodi'
+    }
 ]
 </script>
