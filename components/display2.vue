@@ -3,7 +3,7 @@
 
         <GridContainer :title="'Error 404ss'" :slogan="'lets make it worth'" :has-products="hasProducts" image="/gridImages/collection1.webp" class="h-full min-w-full" />
         <GridContainer :title="'Error 404ss'" :slogan="'lets make it worth'" :has-products="hasProducts" image="/gridImages/collection2.webp" class="h-full min-w-full md:row-span-2" />
-        <GridContainer :title="'Error 404ss'" :slogan="'lets make it worth'" :has-products="hasProducts" image="/gridImages/collection3.webp" class="h-full min-w-full" />
+        <GridContainer :title="'Error 404sas'" :slogan="'lets make it worth'" :has-products="hasProducts" image="/gridImages/collection3.webp" class="h-full min-w-full col-span-2 md:col-span-1" />
 
     </div>
 </template>

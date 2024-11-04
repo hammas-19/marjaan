@@ -67,35 +67,34 @@ input:checked+div span.line-2 {
 }
 </style>
 <template>
-    <nav class="relative px-6 lg:py-0 md:py-10 py-5 bg-linen">
-        <div class="lg:flex lg:items-center lg:justify-between lg:container lg:mx-auto mx-0">
-            <div class="flex items-center justify-between relative">
-                <!-- Mobile menu -->
-                <div class="flex lg:hidden">
-                    <NuxtLink to="/">
-                        <!-- <img v-show="!isOpenBurgerMenu" src="/Logo.svg" class="w-fit absolute left-0 -top-5" alt=""> -->
-                        <h1 class="text-5xl font-medium font-titles">Marjaan</h1>
+  <nav class="relative px-6 lg:py-0 md:py-10 py-5 bg-linen">
+    <div class="lg:flex lg:items-center lg:justify-between lg:container lg:mx-auto mx-0">
+      <div class="flex items-center justify-between relative">
+        <!-- Mobile menu -->
+        <div class="flex lg:hidden">
+          <NuxtLink to="/">
+            <!-- <img v-show="!isOpenBurgerMenu" src="/Logo.svg" class="w-fit absolute left-0 -top-5" alt=""> -->
+            <h1 class="text-5xl font-medium font-titles">Rechik</h1>
 
-                    </NuxtLink>
+          </NuxtLink>
 
 
-                    <div @click="isOpenBurgerMenu = !isOpenBurgerMenu"
-                        class="text-black dark:text-white focus:outline-none focus:text-gray-600 dark:focus:text-white  absolute right-0 -top-2 z-30">
-                        <svg v-show="!isOpenBurgerMenu" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-                        </svg>
+          <div @click="isOpenBurgerMenu = !isOpenBurgerMenu"
+            class="text-black dark:text-white focus:outline-none focus:text-gray-600 dark:focus:text-white  absolute right-0 -top-2 z-30">
+            <svg v-show="!isOpenBurgerMenu" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+            </svg>
 
-                        <svg v-show="isOpenBurgerMenu" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-dark:text-skyBLuelinecap="round" stroke-linejoin="round"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </div>
+            <svg v-show="isOpenBurgerMenu" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-dark:text-skyBLuelinecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
 
-                    <!-- burger menu icon button -->
+          <!-- burger menu icon button -->
 
-                    <!-- <div class="switch" @click="isOpenBurgerMenu = !isOpenBurgerMenu">
+          <!-- <div class="switch" @click="isOpenBurgerMenu = !isOpenBurgerMenu">
                                 <input type="checkbox">
                                 <div>
                                     <span class="line-1"></span>
@@ -104,45 +103,49 @@ input:checked+div span.line-2 {
                                 </div>
                             </div> -->
 
-                </div>
-            </div>
+        </div>
+      </div>
 
-            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-            <div :class="isOpenBurgerMenu ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'"
-                class="absolute inset-x-0 justify-center z-20 grow px-6 bg-linen py-4 transition-all duration-300 ease-in-out lg:mt-0 max-w-7xl mx-auto lg:p-0 top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
-                <div class="flex flex-col lg:flex-row gap-6 items-center lg:justify-between justify-center w-full  px-10 mt-2">
+      <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+      <div :class="isOpenBurgerMenu ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'"
+        class="absolute inset-x-0 justify-center z-20 grow px-6 bg-linen py-4 transition-all duration-300 ease-in-out lg:mt-0 max-w-7xl mx-auto lg:p-0 top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
+        <div class="flex flex-col lg:flex-row gap-6 items-center  justify-center md:justify-between w-full  px-10 mt-2">
 
-                    <span class=" w-fit flex md:flex-row flex-col  justify-center ">
-                        <NuxtLink v-for="(navLink, index) in NavbarLink" :to="navLink.href" :key="index"
-                            @click="isOpenBurgerMenu = !isOpenBurgerMenu"
-                            :active-class="'text-[#5F30E2] border-t-4  border-[#c6baaa]'"
-                            class="text-sm px-4 font-medium transition-colors duration-300 transform text-comet lg:mt-0 lg:py-5 py-0">
-                            {{ navLink.name }}
-                        </NuxtLink>
-                    </span>
+          <span class=" w-fit flex md:flex-row flex-col  justify-center">
+            <NuxtLink v-for="(navLink, index) in NavbarLink" :to="navLink.href" :key="index"
+              @click="isOpenBurgerMenu = !isOpenBurgerMenu"
+              :active-class="'text-[#5F30E2] border-t-4  border-[#c6baaa]'"
+              class="text-sm px-4 font-medium transition-colors duration-300 transform text-comet lg:mt-0 lg:py-5 py-0">
+              {{ navLink.name }}
+            </NuxtLink>
+          </span>
 
-                    <NuxtLink to="/">
+          <div class="flex gap-5 md:self-auto self-end ">
 
-                        <!-- <img src="/Logo.svg" class="w-fit self-center md:self-auto py-1" alt="Logo"> -->
-                        <h1 class="text-6xl font-titles">Marjaan</h1>
-
-                    </NuxtLink>
-
-                    <div class="flex gap-5 md:self-auto self-end">
-
-                        <!-- <NuxtLink to="/auth/login"
+            <!-- <NuxtLink to="/auth/login"
                             class="px-4 py-2 text-center font-medium text-sm rounded-md text-purplHeart border border-purplHeart cursor-pointer hover:bg-purplHeart hover:text-white transition-all">
                             Login</NuxtLink>
                         <NuxtLink to="/auth/Signup"
                             class="px-4 py-2 text-center font-medium text-sm rounded-md text-white bg-purplHeart">Signup
                         </NuxtLink> -->
-                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#525252" stroke-width="2" data-v-1eb027a8=""><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="#525252" stroke-width="2" data-v-1eb027a8="">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+              </path>
+            </svg>
 
-                    </div>
-                </div>
-            </div>
+          </div>
+          <NuxtLink to="/" class="">
+
+            <!-- <img src="/Logo.svg" class="w-fit self-center md:self-auto py-1" alt="Logo"> -->
+            <h1 class="text-6xl font-titles">Rechik</h1>
+
+          </NuxtLink>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </template>
 <script setup>
 const isOpenBurgerMenu = ref(false);

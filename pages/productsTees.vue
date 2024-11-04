@@ -1,36 +1,41 @@
 <template>
     <div class="bg-linen">
-
+<!-- <pre>
+    {{ teesData }}
+</pre> -->
         <!-- Gallery -->
         <section class="max-w-7xl mx-auto px-2 py-10">
             <div class="flex flex-wrap justify-center md:gap-5 gap-2">
                 <!-- The poster -->
                 <div
                     class="relative bg-moss rounded-3xl h-full max-h-[318px] w-full max-w-sm lg:max-w-lg overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
-
                     <img src="https://alphaleteathletics.com/cdn/shop/files/Hero_Image-2.jpg?v=1725654353&width=2000"
                         class="object-cover h-full w-full" alt="">
                     <div
                         class="absolute bottom-5 left-5 flex flex-col gap-2 max-w-[250px] bg-graphite p-5 rounded-2xl bg-opacity-40 backdrop-blur-md">
-
                         <h1 class="text-6xl font-headings font-bold text-white">T-shirts</h1>
                         <span class="text-white text-lg">
                             Your State of Mind
                         </span>
-
                     </div>
-
                 </div>
-
-                <ProductCard :product-data="productData" :for-collection="true" class="" />
-
-
+                <ProductCard :product-data="teesData" :for-collection="true" class="" />
             </div>
         </section>
 
     </div>
 </template>
 <script setup>
+import axios from 'axios'
+
+const teesData = ref([])
+axios.get('https://marjan-backend.up.railway.app/products/')
+    .then(response => {
+        teesData.value = response.data.data
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error)
+    })
 const products = [
     'https://cdn.shopify.com/s/files/1/1752/8007/collections/Last_Chance_Banner_Mens.jpg?v=1679154073&width=1500',
     'https://cdn.shopify.com/s/files/1/1752/8007/products/InfinityExplorerJacket_Men_25_d0425757-d350-441d-8c96-8980e186fd86_400x.jpg?v=1676669937',
