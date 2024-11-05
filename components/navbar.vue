@@ -74,7 +74,8 @@ input:checked+div span.line-2 {
         <div class="flex lg:hidden">
           <NuxtLink to="/">
             <!-- <img v-show="!isOpenBurgerMenu" src="/Logo.svg" class="w-fit absolute left-0 -top-5" alt=""> -->
-            <h1 class="text-5xl font-medium font-titles">Rechik</h1>
+            <!-- <h1 class="text-5xl font-medium font-titles">Rechik</h1> -->
+            <img src="/Logo_Dark.png" class="max-w-[150px]" alt="Rechik Logo">
 
           </NuxtLink>
 
@@ -111,6 +112,15 @@ input:checked+div span.line-2 {
         class="absolute inset-x-0 justify-center z-20 grow px-6 bg-linen py-4 transition-all duration-300 ease-in-out lg:mt-0 max-w-7xl mx-auto lg:p-0 top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
         <div class="flex flex-col lg:flex-row gap-6 items-center  justify-center md:justify-between w-full  px-10 mt-2">
 
+          <NuxtLink to="/" class="">
+
+            <!-- <img src="/Logo.svg" class="w-fit self-center md:self-auto py-1" alt="Logo"> -->
+            <!-- <h1 class="text-6xl font-titles">Rechik</h1> -->
+            <img src="/Logo_Dark.png" class="max-w-[150px]" alt="Rechik Logo">
+
+
+          </NuxtLink>
+
           <span class=" w-fit flex md:flex-row flex-col  justify-center">
             <NuxtLink v-for="(navLink, index) in NavbarLink" :to="navLink.href" :key="index"
               @click="isOpenBurgerMenu = !isOpenBurgerMenu"
@@ -136,12 +146,7 @@ input:checked+div span.line-2 {
             </svg>
 
           </div>
-          <NuxtLink to="/" class="">
 
-            <!-- <img src="/Logo.svg" class="w-fit self-center md:self-auto py-1" alt="Logo"> -->
-            <h1 class="text-6xl font-titles">Rechik</h1>
-
-          </NuxtLink>
         </div>
       </div>
     </div>
