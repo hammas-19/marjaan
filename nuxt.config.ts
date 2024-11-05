@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
 	app: {
 		head: {
-			title: "Marjaan",
+			title: "Rechik",
 			// titleTemplate: "%s | your slogan here",
 			htmlAttrs: {
 				lang: "en",
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 					content: "meta description",
 				}
 			],
-			link: [{ rel: "icon", type: "image/webp", href: "favicon" }],
+			link: [{ rel: "icon", type: "image/webp", href: "/Logo_Mascot_lite.webp" }],
 		},
 	},
 
