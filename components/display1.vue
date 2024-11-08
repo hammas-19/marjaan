@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-cols-2 md:gap-5 gap-1 md:h-[calc(100vh-120px)] h-[calc(100vh-80px)]">
 
-        <GridContainer :title="'AURA'" :slogan="'Radiate Confidence'" :has-products="hasProducts" image="/gridImages/flora.png" class="h-full min-w-full row-span-2">
+        <GridContainer :title="'AURA'" :slogan="'Radiate Confidence'" :has-products="hasProducts" image="/gridImages/nightangle1.png" class="h-full min-w-full row-span-2">
             <template #item1>
                <NuxtLink to="/productsTees">
                     T-Shirts
