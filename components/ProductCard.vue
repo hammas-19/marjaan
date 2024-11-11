@@ -1,6 +1,6 @@
 <template>
   <div v-for="(data, index) in props.productData" :key="index"
-    class="group hover:border-mineShaft border border-linen w-[120px] sm:w-[120px] xl:w-[140px] lg:w-[140px] md:w-[140px] md:h-[200px] h-[200px] rounded-2xl overflow-hidden"
+    class="group hover:border-mineShaft border border-linen w-[120px] sm:w-[120px] xl:w-[140px] lg:w-[140px] md:w-[140px] md:h-[200px] h-[200px] md:rounded-2xl rounded-lg overflow-hidden"
     :class="{ 'w-[100px] sm:w-[145px] md:w-[180px] xl:w-[260px] lg:w-[210px] md:h-[320px] h-[165px]': props.forCollection === true }">
     <NuxtLink :to="'/productDetails/' + data.slug">
 

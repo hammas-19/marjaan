@@ -1,6 +1,6 @@
 <template>
     <div class="bg-linen">
-<!-- <pre>
+        <!-- <pre>
     {{ teesData }}
 </pre> -->
         <!-- Gallery -->
@@ -8,13 +8,13 @@
             <div class="flex flex-wrap justify-center md:gap-5 gap-2">
                 <!-- The poster -->
                 <div
-                    class="relative bg-moss rounded-3xl h-full max-h-[318px] w-full max-w-sm lg:max-w-lg overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
+                    class="relative bg-moss rounded-3xl w-full max-w-sm lg:max-w-lg overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
                     <img src="https://alphaleteathletics.com/cdn/shop/files/Hero_Image-2.jpg?v=1725654353&width=2000"
                         class="object-cover h-full w-full" alt="">
                     <div
-                        class="absolute bottom-5 left-5 flex flex-col gap-2 max-w-[250px] bg-graphite p-5 rounded-2xl bg-opacity-40 backdrop-blur-md">
-                        <h1 class="text-6xl font-headings font-bold text-white">T-shirts</h1>
-                        <span class="text-white text-lg">
+                        class="absolute md:bottom-5 bottom-2 left-5 flex flex-col md:gap-2 gap-1 md:max-w-[250px] max-w-[180px] bg-graphite p-5 rounded-2xl bg-opacity-40 backdrop-blur-md">
+                        <h1 class="md:text-6xl text-2xl font-headings font-bold text-white">T-shirts</h1>
+                        <span class="text-white md:text-lg text-sm">
                             Your State of Mind
                         </span>
                     </div>

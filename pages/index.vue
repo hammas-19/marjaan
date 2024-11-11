@@ -18,9 +18,9 @@
                      Creators Selected
                   </h1>
                </div>
-               <NuxtLink class="md:text-xl text-sm ">
+               <!-- <NuxtLink class="md:text-xl text-sm ">
                   View All
-               </NuxtLink>
+               </NuxtLink> -->
             </div>
          </ClientOnly>
          <Tabs class="">
@@ -74,9 +74,9 @@
                      Best Sellers
                   </h1>
                </div>
-               <NuxtLink class="md:text-xl text-sm ">
+               <!-- <NuxtLink class="md:text-xl text-sm ">
                   View All
-               </NuxtLink>
+               </NuxtLink> -->
             </div>
          </ClientOnly>
          <Tabs class="">
