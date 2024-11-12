@@ -5,7 +5,7 @@
         <img :src="image"
             class="object-cover h-full w-full transition-all duration-700" alt="">
         <div
-            class="absolute flex flex-col md:bottom-5 bottom-2 md:hover:gap-2 gap-1 w-fit md:max-w-xs max-w-[140px] bg-graphite md:hover:p-5 md:p-3 p-2 md:rounded-2xl rounded-xl bg-opacity-40 backdrop-blur-md transition-all"
+            class="absolute flex flex-col md:bottom-5 bottom-2 md:hover:gap-2 gap-1 w-fit md:max-w-xs max-w-[140px] bg-graphite md:hover:p-5 md:px-4 px-3 md:py-3 py-1 md:rounded-2xl rounded-xl bg-opacity-40 backdrop-blur-md transition-all"
             :class="contentLeft ? 'md:left-5 left-2' : 'md:right-5 right-2 text-right items-end'">
             
             <h1 class="md:text-3xl text-sm font-headings font-bold text-white">
