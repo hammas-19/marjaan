@@ -9,7 +9,7 @@
               <div class="space-y-1">
                 <h1 class="text-xl sm:text-3xl font-headings">{{ apiData.name }}</h1>
                 <p class="text-xs font-semibold">
-                  From: <span class="font-headings text-tango font-normal text-sm">{{ apiData.collection }}</span>
+                  Collection: <span class="font-headings text-tango font-normal text-sm">{{ apiData.collection }}</span>
                 </p>
               </div>
               <p class="text-base font-semibold">
@@ -50,7 +50,8 @@
                     <label v-for="(color, index) in apiData.available_colours" :key="index" class="cursor-pointer">
                       <input type="radio" name="color" class="peer sr-only" />
                       <span
-                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white hover:text-white hover:bg-[#BF5700] transition-all">
+                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white hover:text-white hover:bg-[#BF5700] transition-all"
+                        :style="{ backgroundColor: color }">
                         {{ color }}
                       </span>
                     </label>
@@ -85,6 +86,9 @@
         </div>
       </div>
     </section>
+    <!-- <pre>
+      {{ apiData }}
+    </pre> -->
   </div>
 </template>
 
