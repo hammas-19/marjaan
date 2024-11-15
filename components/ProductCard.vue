@@ -1,6 +1,6 @@
 <template>
   <div v-for="(data, index) in props.productData" :key="index"
-    class="group hover:border-mineShaft border border-linen w-[120px] sm:w-[120px] xl:w-[140px] lg:w-[140px] md:w-[140px] md:h-[200px] h-[250px] md:rounded-2xl rounded-lg overflow-hidden"
+    class="group hover:border-mineShaft  w-[120px] sm:w-[120px] xl:w-[140px] lg:w-[140px] md:w-[140px] md:h-[200px] h-[295px] md:rounded-2xl rounded-lg overflow-hidden"
     :class="{ 'w-[100px] sm:w-[145px] md:w-[180px] xl:w-[260px] lg:w-[210px] md:h-[320px] h-[165px]': props.forCollection === true }">
     <NuxtLink :to="'/productDetails/' + data.slug">
       <div class="relative">
@@ -32,7 +32,7 @@
       </div>
     </NuxtLink>
     <div
-      class="md:hidden grid grid-cols-3 gap-1 bg-linen transition-all duration-300 md:p-1 py-1 md:py-0">
+      class="md:hidden grid grid-cols-3 gap-1 bg-linen transition-all duration-300 md:p-1 py-1 md:py-0  h-full max-h-[90px] justify-between border border-codGrey rounded-md border-dashed p-1 mt-[2px]">
       <p class="font-headings text-xs md:text-2xl font-medium grid w-full col-span-2">
         {{ data.name }}
       </p>
