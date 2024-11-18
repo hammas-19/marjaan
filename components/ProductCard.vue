@@ -32,14 +32,14 @@
       </div>
     </NuxtLink>
     <div
-      class="md:hidden grid grid-cols-3 gap-1 bg-linen transition-all duration-300 md:p-1 py-1 md:py-0  h-full max-h-[90px] justify-between border border-codGrey rounded-md border-dashed p-1 mt-[2px]">
+      class="md:hidden grid grid-cols-3 gap-1 bg-linen transition-all duration-300 md:p-1 py-1 md:py-0  h-full max-h-[90px] justify-between rounded-md p-1 mt-[2px]">
       <p class="font-headings text-xs md:text-2xl font-medium grid w-full col-span-2">
         {{ data.name }}
       </p>
       <p class="text-[8px] justify-self-end col-span-1 text-right">
         Rs: <span class="text-sm md:text-lg md:font-bold font-semibold ">{{ data.price }}</span>
       </p>
-      <div class="col-span-3 flex flex-col gap-2">
+      <!-- <div class="col-span-3 flex flex-col gap-2">
         <div class="flex gap-1">
           <span v-for="(color, cIndex) in data.available_colours" :key="cIndex"
             class="text-xs md:p-2 p-1 rounded-md" :style="{ backgroundColor: color }"></span>
@@ -50,7 +50,7 @@
             {{ sizes }}
           </span>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
