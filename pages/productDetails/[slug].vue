@@ -26,7 +26,7 @@
 
           <!-- Images -->
           <div
-            class="hiddenScroll relative flex md:flex-col flex-row gap-4 max-h-screen md:overflow-y-scroll overflow-x-scroll hover:cursor-zoom-in">
+            class="hiddenScroll relative flex md:flex-col flex-row gap-4 max-h-screen md:overflow-y-scroll overflow-x-scroll">
             <!-- Swiper -->
             <span class="flex justify-center items-center w-full md:sticky absolute top-1">
               <strong class="rounded-full bg-gray-100 w-fit px-3 py-0.5 text-xs font-medium tracking-wide text-tango">
@@ -34,9 +34,9 @@
                 <span class="block md:hidden">Swipe left</span>
               </strong>
             </span>
-            <img :src="apiData.image" class="aspect-square w-full rounded-lg object-cover hover:cursor-zoom-in"
+            <img :src="apiData.image" class="aspect-square w-full rounded-lg object-cover "
               :alt="apiData.name" />
-            <img :src="apiData.image2" class="aspect-square w-full rounded-lg object-cover hover:cursor-zoom-in"
+            <img :src="apiData.image2" class="aspect-square w-full rounded-lg object-cover "
               :alt="apiData.name" />
           </div>
 
@@ -129,10 +129,10 @@ onMounted(() => {
   transition: transform 0.3s ease-in-out;
 }
 
-.hiddenScroll img:hover {
-  transform: scale(1.8);
+/* .hiddenScroll img:hover { */
+  /* transform: scale(1.8); */
   /* Scale image on hover */
-  z-index: 10;
+  /* z-index: 10; */
   /* Bring the image to front when scaled */
-}
+/* } */
 </style>

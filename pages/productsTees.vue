@@ -36,9 +36,16 @@
 import axios from 'axios'
 
 const teesData = ref([])
+
+// Fetch the data and sort in descending order
 axios.get('https://marjan-backend.up.railway.app/products/')
   .then(response => {
-    teesData.value = response.data.data
+    teesData.value = response.data.data.sort((a, b) => {
+      // Replace 'property' with the actual property you want to sort by
+      return b.id - a.id // For numeric values
+      // For string properties, use localeCompare:
+      // return b.property.localeCompare(a.property)
+    })
   })
   .catch(error => {
     console.error('Error fetching data:', error)
