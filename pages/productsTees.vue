@@ -26,7 +26,7 @@
             class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
         </template>
         <template v-else>
-          <ProductCard :product-data="teesData" :for-collection="true" class="" />
+          <ProductCard :product-data="teesData" />
         </template>
       </div>
     </section>

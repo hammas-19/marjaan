@@ -1,13 +1,11 @@
 <template>
   <div v-for="(data, index) in props.productData" :key="index"
-    class="group hover:border-mineShaft  w-[120px] sm:w-[120px] xl:w-[140px] lg:w-[140px] md:w-[140px] md:h-[200px] h-[295px] md:rounded-2xl rounded-lg overflow-hidden"
-    :class="{ 'w-[100px] sm:w-[145px] md:w-[180px] xl:w-[260px] lg:w-[210px] md:h-[320px] h-[165px]': props.forCollection === true }">
+    class="group hover:border-mineShaft md:w-[320px] w-[170px] md:h-[385px] h-[320px]  md:rounded-2xl rounded-lg overflow-hidden">
     <NuxtLink :to="'/productDetails/' + data.slug">
       <div class="relative">
         <img :src="data.image"
-          class="object-cover w-[120px] sm:w-[120px] xl:w-[140px] lg:w-[140px] md:w-[140px] md:h-[200px] h-[200px] group-hover:opacity-90 transition-all md:rounded-2xl rounded-lg"
-          alt=""
-          :class="{ 'w-[100px] sm:w-[145px] md:w-[180px] xl:w-[260px] lg:w-[210px] md:h-[320px] h-[165px]': props.forCollection === true}">
+          class="object-cover md:w-[320px] w-[170px] md:h-[385px] h-[260px] group-hover:opacity-90 transition-all md:rounded-2xl rounded-lg"
+          alt="">
         <div
           class="hidden opacity-0 group-hover:opacity-100 absolute inset-x-0 md:grid grid-cols-3 gap-7 bottom-0 bg-linen transition-all duration-300 px-2 py-3">
           <p class="font-headings text-xs md:text-2xl font-medium grid w-full col-span-2">
@@ -62,10 +60,6 @@ const props = defineProps({
   productData: {
     type: Array,
     default: []
-    },
-  forCollection: {
-    type: Boolean,
-    default: false
     }
 })
 </script>

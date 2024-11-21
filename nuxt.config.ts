@@ -1,14 +1,14 @@
 export default defineNuxtConfig({
 	runtimeConfig: {
-    public: {
-      API_BASE_URL: process.env.STRAPI_API_URL,
-      API_READ_TOKEN: process.env.STRAPI_API_KEY
-    },
-  },
+		public: {
+			API_BASE_URL: process.env.STRAPI_API_URL,
+			API_READ_TOKEN: process.env.STRAPI_API_KEY,
+		},
+	},
 	app: {
 		head: {
 			title: "Rechik",
-			// titleTemplate: "%s | your slogan here",
+			titleTemplate: "%s | Outfit levels unlocked",
 			htmlAttrs: {
 				lang: "en",
 			},
@@ -22,13 +22,18 @@ export default defineNuxtConfig({
 					hid: "description",
 					name: "description",
 					content: "meta description",
-				}
+				},
 			],
-			link: [{ rel: "icon", type: "image/webp", href: "/Logo_Mascot_lite.webp" }],
+			link: [
+				{
+					rel: "icon",
+					type: "image/webp",
+					href: "/Logo_Mascot_lite.webp",
+				},
+			],
 		},
 	},
-
-	modules: ["@nuxtjs/tailwindcss"],
+	modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
 
 	tailwindcss: {
 		cssPath: "~/assets/css/main.css",

@@ -22,7 +22,7 @@
 
                 </div>
 
-                <ProductCard :product-data="teesData" :for-collection="true" class="" />
+                <ProductCard :product-data="teesData" />
 
 
             </div>
