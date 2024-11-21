@@ -75,7 +75,7 @@ input:checked+div span.line-2 {
           <NuxtLink to="/">
             <!-- <img v-show="!isOpenBurgerMenu" src="/Logo.svg" class="w-fit absolute left-0 -top-5" alt=""> -->
             <!-- <h1 class="text-5xl font-medium font-titles">Rechik</h1> -->
-            <img src="/Logo_Dark.png" class="max-w-[150px]" alt="Rechik Logo">
+            <img src="/Logo-Dark.png" class="max-w-[150px]" alt="Rechik Logo">
 
           </NuxtLink>
 
@@ -116,7 +116,7 @@ input:checked+div span.line-2 {
 
             <!-- <img src="/Logo.svg" class="w-fit self-center md:self-auto py-1" alt="Logo"> -->
             <!-- <h1 class="text-6xl font-titles">Rechik</h1> -->
-            <img src="/Logo_Dark.png" class="max-w-[150px]" alt="Rechik Logo">
+            <img src="/Logo-Dark.png" class="max-w-[150px]" alt="Rechik Logo">
 
 
           </NuxtLink>
