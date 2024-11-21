@@ -34,10 +34,8 @@
                 <span class="block md:hidden">Swipe left</span>
               </strong>
             </span>
-            <img :src="apiData.image" class="aspect-square w-full rounded-lg object-cover "
-              :alt="apiData.name" />
-            <img :src="apiData.image2" class="aspect-square w-full rounded-lg object-cover "
-              :alt="apiData.name" />
+            <img :src="apiData.image" class="aspect-square w-full rounded-lg object-cover " :alt="apiData.name" />
+            <img :src="apiData.image2" class="aspect-square w-full rounded-lg object-cover " :alt="apiData.name" />
           </div>
 
           <!-- Add to Cart -->
@@ -49,11 +47,14 @@
                   <div class="flex flex-wrap gap-1">
                     <label v-for="(color, index) in apiData.available_colours" :key="index" class="cursor-pointer">
                       <input type="radio" name="color" class="peer sr-only" />
-                      <span
-                        class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white hover:text-white hover:bg-[#BF5700] transition-all"
-                        :style="{ backgroundColor: color }">
-                        {{ color }}
-                      </span>
+                      
+                        <NuxtLink :to="'/productDetails/' + color.slug">
+                        
+                          <span
+                          class="group inline-block rounded-full border px-3 py-2 text-xs font-medium peer-checked:bg-black peer-checked:text-white hover:text-white hover:bg-[#BF5700] transition-all"
+                          :style="{ backgroundColor: color.color }">
+                        </span>
+                      </NuxtLink>
                     </label>
                   </div>
                 </fieldset>

@@ -23,7 +23,7 @@
                </NuxtLink> -->
             </div>
          </ClientOnly>
-         <Tabs class="">
+         <Tabs>
             <template #cat1>
                T-Shirts
             </template>
@@ -34,20 +34,38 @@
                SweatShirts
             </template>
             <template #category1>
-               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
-                  <ProductCard :product-data="productData" class="w-[280px]" />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-end">
+                  <template v-if="isLoading">
+                     <div v-for="(items) in 10" :key="items"
+                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                  </template>
+                  <template v-else>
+                     <ProductCard :product-data="teesData" :for-collection="true" class="" />
+                  </template>
                </div>
                <!-- <ProductSlider1 /> -->
             </template>
             <template #category2>
                <!-- <ProductSlider2 /> -->
-               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
-                  <ProductCard :product-data="productDataUnisex" class="w-[280px]" />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-end">
+                  <template v-if="isLoading">
+                     <div v-for="(items) in 10" :key="items"
+                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                  </template>
+                  <template v-else>
+                     <ProductCard :product-data="hoodData" :for-collection="true" class="" />
+                  </template>
                </div>
             </template>
             <template #category3>
-               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
-                  <ProductCard :product-data="productData" class="w-[280px]" />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-end">
+                  <template v-if="isLoading">
+                     <div v-for="(items) in 10" :key="items"
+                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                  </template>
+                  <template v-else>
+                     <ProductCard :product-data="sweatData" :for-collection="true" class="" />
+                  </template>
                </div>
                <!-- <ProductSlider1 /> -->
             </template>
@@ -90,20 +108,38 @@
                SweatShirts
             </template>
             <template #category1>
-               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
-                  <ProductCard :product-data="productData" class="w-[280px]" />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-end">
+                  <template v-if="isLoading">
+                     <div v-for="(items) in 10" :key="items"
+                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                  </template>
+                  <template v-else>
+                     <ProductCard :product-data="teesData" :for-collection="true" class="" />
+                  </template>
                </div>
                <!-- <ProductSlider1 /> -->
             </template>
             <template #category2>
                <!-- <ProductSlider2 /> -->
-               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
-                  <ProductCard :product-data="productDataUnisex" class="w-[280px]" />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-end">
+                  <template v-if="isLoading">
+                     <div v-for="(items) in 10" :key="items"
+                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                  </template>
+                  <template v-else>
+                     <ProductCard :product-data="hoodData" :for-collection="true" class="" />
+                  </template>
                </div>
             </template>
             <template #category3>
-               <div class="main grid grid-flow-col gap-2 overflow-x-scroll">
-                  <ProductCard :product-data="productData" class="w-[280px]" />
+               <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-end">
+                  <template v-if="isLoading">
+                     <div v-for="(items) in 10" :key="items"
+                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                  </template>
+                  <template v-else>
+                     <ProductCard :product-data="sweatData" :for-collection="true" class="" />
+                  </template>
                </div>
                <!-- <ProductSlider1 /> -->
             </template>
@@ -162,7 +198,7 @@
                </NuxtLink>
 
             </div>
-            <RelatedProducts class="py-5" />
+            <!-- <RelatedProducts class="py-5" /> -->
 
          </div>
       </section>
@@ -170,129 +206,182 @@
    </div>
 </template>
 <script setup>
-const categories = ["Men", "Ladiis"];
+import axios from 'axios'
+
+const teesData = ref([])
+const isLoading = ref(true) // To track loading state
+
+// Fetch data using promises
+axios.get('https://marjan-backend.up.railway.app/products/?category=Tshirts')
+   .then(response => {
+      teesData.value = response.data.data.sort((a, b) => {
+         return b.id - a.id // For numeric values
+         // Or for string properties, use:
+         // return b.property.localeCompare(a.property)
+      })
+   })
+   .catch(error => {
+      console.error('Error fetching data:', error)
+   })
+   .finally(() => {
+      isLoading.value = false // Set loading to false when data is fetched
+   })
+const hoodData = ref([])
+
+// Fetch data using promises
+axios.get('https://marjan-backend.up.railway.app/products/?category=Hoodies')
+   .then(response => {
+      hoodData.value = response.data.data.sort((a, b) => {
+         return b.id - a.id // For numeric values
+         // Or for string properties, use:
+         // return b.property.localeCompare(a.property)
+      })
+   })
+   .catch(error => {
+      console.error('Error fetching data:', error)
+   })
+   .finally(() => {
+      isLoading.value = false // Set loading to false when data is fetched
+   })
+const sweatData = ref([])
+
+// Fetch data using promises
+axios.get('https://marjan-backend.up.railway.app/products/?category=SweatShirts')
+   .then(response => {
+      sweatData.value = response.data.data.sort((a, b) => {
+         return b.id - a.id // For numeric values
+         // Or for string properties, use:
+         // return b.property.localeCompare(a.property)
+      })
+   })
+   .catch(error => {
+      console.error('Error fetching data:', error)
+   })
+   .finally(() => {
+      isLoading.value = false // Set loading to false when data is fetched
+   })
 const productData = [
    {
       image: '/gridImages/collection4.webp',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: '/gridImages/collection3.webp',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: '/gridImages/collection4.webp',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: '/gridImages/collection3.webp',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: '/gridImages/collection4.webp',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: '/gridImages/collection3.webp',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: '/gridImages/collection4.webp',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: '/gridImages/collection3.webp',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: '/gridImages/collection4.webp',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: '/gridImages/collection3.webp',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    }
 ]
 const productDataUnisex = [
    {
       image: 'https://cdn.shopify.com/s/files/1/1752/8007/collections/Last_Chance_Banner_Mens.jpg?v=1679154073&width=1500',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgoiDLwMPT4ev1sKXWoYL-Jbc_b75DLDRixMRfVdL7l4aQOQKl2aSCtkYL5X1t0tsPWpV94UN4qDZOTt-vmLyw9dKiw7GQOJTNc4z_PXN5gjSfBmcTjqQhMmpxtcSPuEXAA8Nw-4V8lNhKqIgjBgGRauq8mrIIPPBeRXZb4nsKKdLst8TPOsnyEgsr1',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: 'https://cdn.shopify.com/s/files/1/1752/8007/collections/Last_Chance_Banner_Mens.jpg?v=1679154073&width=1500',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgoiDLwMPT4ev1sKXWoYL-Jbc_b75DLDRixMRfVdL7l4aQOQKl2aSCtkYL5X1t0tsPWpV94UN4qDZOTt-vmLyw9dKiw7GQOJTNc4z_PXN5gjSfBmcTjqQhMmpxtcSPuEXAA8Nw-4V8lNhKqIgjBgGRauq8mrIIPPBeRXZb4nsKKdLst8TPOsnyEgsr1',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: 'https://cdn.shopify.com/s/files/1/1752/8007/collections/Last_Chance_Banner_Mens.jpg?v=1679154073&width=1500',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgoiDLwMPT4ev1sKXWoYL-Jbc_b75DLDRixMRfVdL7l4aQOQKl2aSCtkYL5X1t0tsPWpV94UN4qDZOTt-vmLyw9dKiw7GQOJTNc4z_PXN5gjSfBmcTjqQhMmpxtcSPuEXAA8Nw-4V8lNhKqIgjBgGRauq8mrIIPPBeRXZb4nsKKdLst8TPOsnyEgsr1',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: 'https://cdn.shopify.com/s/files/1/1752/8007/collections/Last_Chance_Banner_Mens.jpg?v=1679154073&width=1500',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgoiDLwMPT4ev1sKXWoYL-Jbc_b75DLDRixMRfVdL7l4aQOQKl2aSCtkYL5X1t0tsPWpV94UN4qDZOTt-vmLyw9dKiw7GQOJTNc4z_PXN5gjSfBmcTjqQhMmpxtcSPuEXAA8Nw-4V8lNhKqIgjBgGRauq8mrIIPPBeRXZb4nsKKdLst8TPOsnyEgsr1',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    },
    {
       image: 'https://cdn.shopify.com/s/files/1/1752/8007/collections/Last_Chance_Banner_Mens.jpg?v=1679154073&width=1500',
-      name : 'Hammas'  
+      name: 'Hammas'
    },
    {
       image: 'https://blogger.googleusercontent.com/img/a/AVvXsEgoiDLwMPT4ev1sKXWoYL-Jbc_b75DLDRixMRfVdL7l4aQOQKl2aSCtkYL5X1t0tsPWpV94UN4qDZOTt-vmLyw9dKiw7GQOJTNc4z_PXN5gjSfBmcTjqQhMmpxtcSPuEXAA8Nw-4V8lNhKqIgjBgGRauq8mrIIPPBeRXZb4nsKKdLst8TPOsnyEgsr1',
-      name : 'Masood'  
+      name: 'Masood'
    },
    {
       image: '/gridImages/collection2.webp',
-      name : 'hamoodi'  
+      name: 'hamoodi'
    }
 ]
 const productImages = [
@@ -315,5 +404,4 @@ const productImages = [
    scrollbar-width: none;
 
 }
-
 </style>

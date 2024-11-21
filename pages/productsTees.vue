@@ -20,6 +20,7 @@
             </span>
           </div>
         </div>
+        <!-- <pre>{{ teesData }}</pre> -->
         <template v-if="!teesData.length">
           <div v-for="(items) in 10" :key="items"
             class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
@@ -38,7 +39,7 @@ import axios from 'axios'
 const teesData = ref([])
 
 // Fetch the data and sort in descending order
-axios.get('https://marjan-backend.up.railway.app/products/')
+axios.get('https://marjan-backend.up.railway.app/products/?category=Tshirts')
   .then(response => {
     teesData.value = response.data.data.sort((a, b) => {
       // Replace 'property' with the actual property you want to sort by

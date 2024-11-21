@@ -18,8 +18,11 @@
           </p>
           <div class="col-span-2 flex flex-col gap-2">
             <div class="flex gap-1">
-              <span v-for="(color, cIndex) in data.available_colours" :key="cIndex"
-                class="text-xs p-2 rounded-md border border-codGrey" :style="{ backgroundColor: color }"></span>
+              <template v-for="(color, cIndex) in data.available_colours" :key="cIndex">
+                <NuxtLink :to="'/productDetails/' + color.slug" class="text-xs p-2 rounded-md border border-codGrey"
+                  :style="{ backgroundColor: color.color }">
+                </NuxtLink>
+              </template>
             </div>
             <div class="grid grid-cols-4 gap-1 w-fit">
               <span v-for="(sizes, sIndex) in data.available_size" :key="sIndex"
