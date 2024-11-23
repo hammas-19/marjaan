@@ -7,7 +7,7 @@
         <div
             class="absolute bottom-5 left-5 flex flex-col gap-2 max-w-[250px] md:max-w-[400px] p-5 rounded-2xl bg-opacity-40 backdrop-blur-md">
 
-            <h1 class="md:text-6xl text-3xl font-headings font-bold text-white">Get, Set, Stereotype</h1>
+            <h1 class="md:text-6xl text-3xl font-headings font-bold text-white">Versatile, ReChic, You!</h1>
             <span class="text-white md:text-xl text-base">
                 Shop
             </span>

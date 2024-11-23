@@ -1,6 +1,6 @@
 <template>
     <div
-        class="relative bg-moss md:rounded-3xl rounded-xl border h-full overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300">
+        class="relative bg-moss md:rounded-3xl rounded-xl border h-full overflow-hidden transition-all duration-300">
 
         <img :src="image"
             class="object-cover h-full w-full transition-all duration-700" alt="">

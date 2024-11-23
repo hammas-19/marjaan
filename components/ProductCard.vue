@@ -1,6 +1,6 @@
 <template>
   <div v-for="(data, index) in props.productData" :key="index"
-    class="group hover:border-mineShaft md:w-[320px] w-[170px] md:h-[385px] h-[320px]  md:rounded-2xl rounded-lg overflow-hidden">
+    class="group hover:border-mineShaft md:w-[320px] w-[170px] md:h-[385px] h-[320px]  md:rounded-2xl rounded-lg overflow-hidden max-w-fit">
     <NuxtLink :to="'/productDetails/' + data.slug">
       <div class="relative">
         <img :src="data.image"

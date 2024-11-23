@@ -5,12 +5,14 @@
       <div class="grid grid-cols-3 md:gap-3 gap-1 pb-5">
         <NuxtLink v-for="(collection, cindex) in collectins" :key="cindex"
           :to="{ path: '/collection', query: { collection: collection.slug, category: activeCategory } }"
-          class="relative bg-moss md:rounded-3xl h-[110px] rounded-md md:h-[280px] w-full overflow-hidden hover:opacity-80 transition-all"
-          :class="activeCollection === collection.slug ? 'opacity-100' : 'opacity-50'"
-          >
+          class="relative bg-linen md:rounded-3xl h-[110px] rounded-md md:h-[280px] w-full overflow-hidden hover:opacity-80 transition-all"
+          :class="activeCollection === collection.slug ? 'opacity-100' : 'opacity-50'">
+          <h1 class="text-xs sm:text-sm font-medium  mt-5 text-center border rounded-t-lg border-codGrey border-b-0 block md:hidden">
+            {{ collection.name }}
+          </h1>
           <img :src="collection.image" class="object-cover h-full w-full" alt="">
           <div
-            class="absolute bottom-2 left-2 flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
+            class="hidden absolute bottom-2 left-2 md:flex flex-col gap-2 md:max-w-[250px] max-w-[80px] bg-graphite md:p-5 p-2 md:rounded-2xl rounded-md backdrop-blur-md">
             <h1 class="lg:text-3xl text-sm font-headings md:font-bold font-medium text-white">
               {{ collection.name }}
             </h1>
@@ -22,9 +24,8 @@
       </div>
 
       <!-- Tabs for product categories -->
-      <section class="min-h-[calc(100vh-250px)] border">
-        <div
-          class="md:mb-10 mb-4 text-base font-headings flex justify-center items-center sticky md:top-3 top-1 z-20">
+      <section class="min-h-[calc(100vh-250px)]">
+        <div class="md:mb-10 mb-4 text-base font-headings flex justify-center items-center sticky md:top-3 top-1 z-20">
           <div class="md:border-2 border border-graphite p-1 flex rounded-full gap-3 bg-linen">
             <NuxtLink v-for="(category, index) in categories" :key="index"
               :to="{ path: '/collection', query: { collection: activeCollection, category: category.slug } }"
@@ -36,7 +37,7 @@
         </div>
 
         <!-- Products Display -->
-        <div class="mt-4 flex flex-wrap justify-center md:gap-10 gap-5">
+        <div class="mt-4 grid grid-cols-2 justify-center md:gap-10 gap-1 justify-items-center">
           <ProductCard v-if="filteredProducts.length" :product-data="filteredProducts" />
           <p v-else>
             No products found for this category.
