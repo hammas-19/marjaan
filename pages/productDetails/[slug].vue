@@ -1,7 +1,7 @@
 <template>
   <div class="bg-linen">
     <!-- Debugging -->
-    <pre>{{ stringifyCartItems }}</pre>
+    <!-- <pre>{{ stringifyCartItems }}</pre> -->
 <!-- <pre>{{ apiData }}</pre> -->
     <section v-if="apiData" class="max-w-7xl mx-auto md:px-6 px-2 md:py-5 py-2">
       <div class="relative mx-auto py-8">
@@ -108,7 +108,6 @@
 
 <script setup>
 import axios from 'axios'
-import { ref, computed, onMounted } from 'vue'
 import { useCartStore } from '@/stores/CartStore'
 
 const route = useRoute()
