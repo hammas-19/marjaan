@@ -139,13 +139,13 @@
          </Tabs>
       </section>
 
-      <section class="max-w-7xl mx-auto md:px-6 px-3 md:py-10 py-5">
+      <section class="max-w-7xl mx-auto md:px-6 px-3 md:pt-10 pt-5">
          <Desc&handle class="border-b-0" />
          <Display2 />
       </section>
 
       <!-- Testimonials -->
-      <section class="w-full mx-auto md:py-10 py-5 px-2 md:mt-40">
+      <section class="w-full mx-auto px-2 md:mt-20">
          <Testimonials />
       </section>
    </div>

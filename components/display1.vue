@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-2 md:gap-5 gap-1 md:h-[calc(100vh-120px)] h-[calc(100vh-80px)]">
+    <div class="grid grid-cols-2 md:gap-5 gap-1 md:h-[calc(100vh-120px)] h-[calc(100vh-180px)]">
 
         <GridContainer :title="'AURA'" :slogan="'Radiate Confidence'" :has-products="hasProducts"
             image="/gridImages/Restored1.png" class="h-full min-w-full row-span-2">
@@ -21,7 +21,7 @@
         </GridContainer>
 
         <GridContainer :title="'NyctoPhille'" :slogan="'Where Darkness Inspires'" :has-products="hasProducts"
-            :content-left="false" image="/gridImages/henna.jpg" class="min-w-full h-full">
+            :content-left="false" image="/gridImages/sweatHanghen2.jpg" class="min-w-full h-full">
             <template #item1>
                 <NuxtLink to="/collection?collection=nyctophile&category=tshirts">
                     T-Shirts

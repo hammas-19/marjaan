@@ -47,10 +47,10 @@
 </style>
 <template>
   <div
-    class="marquee-box mx-auto overflow-hidden flex items-center flex-col md:flex-row justify-between gap-10 lg:container px-5 md:h-[calc(100vh-400px)] h-screen">
+    class="marquee-box mx-auto overflow-hidden flex items-center md:items-start  flex-col md:flex-row justify-between gap-10 lg:container px-5 h-screen">
 
     <div class="flex flex-col gap-4 md:w-1/2 w-full pt-16">
-      <h1 class="md:text-7xl text-4xl font-semibold font-handlee text-tango">
+      <h1 class="md:text-7xl text-4xl font-semibold font-handlee text-tango text-center">
         "
         <span class="text-black">
           Our Customers are saying that ...
