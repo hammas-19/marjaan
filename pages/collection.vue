@@ -49,8 +49,6 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-
 const categories = [
   { name: 'T-Shirts', slug: 'tshirts' },
   { name: 'Hoodies', slug: 'hoodies' },

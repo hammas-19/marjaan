@@ -5,10 +5,10 @@
 </pre> -->
     <!-- Gallery -->
     <section class="max-w-7xl mx-auto px-2 py-10">
-      <div class="flex flex-wrap justify-center md:gap-5 gap-2">
+      <div class="grid sm:grid-cols-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center md:gap-10 gap-1">
         <!-- The poster -->
         <div
-          class="relative bg-moss rounded-3xl w-full max-w-sm lg:max-w-lg overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
+          class="relative bg-moss rounded-3xl w-full max-w-3xl overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
           <img
             src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI0mcNqamAvThopFCHglVSVRBdOOwizeEbxqg4uImPdruIwkWwGVodzvDXAZbxx8yJxky04_LOjqSlZOn7lvJqiHe_ACnrstnLew9AusJghsGPtLObQrvyeyXHrcdFEU7vXPEQNk62mgIvyvIWXTRVBaXKOAaKTIF2RS2_25QKL1gsh-0HSJFIyWPeJU2U/s16000/TshirtsGif.gif"
             class="object-cover h-full w-full" alt="">
