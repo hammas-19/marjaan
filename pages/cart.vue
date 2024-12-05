@@ -9,7 +9,7 @@
           <h1 v-else class="text-xl font-headings font-bold sm:text-3xl">
             Your Cart is Empty..!
           </h1>
-        </header>
+        </header>        
         <ClientOnly>
           <div v-if="cartData.items.length"
             class="mt-8 border md:p-6 p-3 border-dashed border-codGrey rounded-xl bg-white">
@@ -44,7 +44,8 @@
                 </div>
 
                 <div class="flex flex-1 items-center justify-end gap-2">
-                  <button class="text-gray-600 transition hover:text-[#f55a5a]">
+                  <button @click="removeItemFromCart(item.id, item.size, item.color)"
+                    class="text-gray-600 transition hover:text-[#f55a5a]">
                     <span class="sr-only">Remove item</span>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -104,4 +105,7 @@
 <script setup>
 import { useCartStore } from '@/stores/CartStore'
 const cartData = useCartStore()
+const removeItemFromCart = (productId, size, color) => {
+  cartData.removeFromCart(productId, size, color)
+}
 </script>
