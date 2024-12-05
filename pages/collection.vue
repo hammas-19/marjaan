@@ -37,7 +37,7 @@
         </div>
 
         <!-- Products Display -->
-        <div class="mt-4 grid grid-cols-2 justify-center md:gap-10 gap-1 justify-items-center">
+        <div class="mt-4 grid grid-cols-2 sm:grid-cols-3  justify-center md:gap-10 gap-1 justify-items-center">
           <ProductCard v-if="filteredProducts.length" :product-data="filteredProducts" />
           <p v-else>
             No products found for this category.
