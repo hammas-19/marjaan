@@ -104,9 +104,9 @@
                 </dl>
 
                 <div class="flex justify-end">
-                  <a href="#" class="block rounded bg-tango px-5 py-3 text-sm text-white transition">
+                  <NuxtLink to="/checkout" class="block rounded bg-tango px-5 py-3 text-sm text-white transition">
                     Checkout
-                  </a>
+                  </NuxtLink>
                 </div>
               </div>
             </div>

@@ -1,12 +1,10 @@
 <template>
-  <section class="bg-linen py-8 antialiased dark:bg-gray-900 md:py-16">
+  <section class="bg-linen py-8 md:py-16">
     <form action="#" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
-      <ol
-        class="items-center flex w-full max-w-2xl text-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:text-base">
+      <ol class="items-center flex w-full max-w-2xl text-center text-sm font-medium sm:text-base">
         <li
-          class="after:border-1 flex items-center text-primary-700 after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-gray-200 dark:text-primary-500 dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10">
-          <span
-            class="flex items-center after:mx-2 after:text-gray-200 after:content-['/'] dark:after:text-gray-500 sm:after:hidden">
+          class="after:border-1 flex items-center text-primary-700 after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-tango dark:text-primary-500 dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10">
+          <span class="flex items-center after:mx-2 after:content-['/'] sm:after:hidden">
             <svg class="me-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
               height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -17,11 +15,11 @@
         </li>
 
         <li
-          class="after:border-1 flex items-center text-primary-700 after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-gray-200 dark:text-primary-500 dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10">
+          class="after:border-1 flex items-center text-primary-700 after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-tango dark:text-primary-500 dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10">
           <span
             class="flex items-center after:mx-2 after:text-gray-200 after:content-['/'] dark:after:text-gray-500 sm:after:hidden">
-            <svg class="me-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-              height="24" fill="none" viewBox="0 0 24 24">
+            <svg class="me-2 h-4 w-4 sm:h-5 sm:w-5  text-tango" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
@@ -42,47 +40,31 @@
       <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
         <div class="min-w-0 flex-1 space-y-8">
           <div class="space-y-4">
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Details</h2>
+            <h2 class="text-xl font-semibold dark:text-white">Delivery Details</h2>
 
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label for="your_name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Your name
+                <label for="your_name" class="mb-2 block text-sm font-medium dark:text-white"> Your name
                 </label>
                 <input type="text" id="your_name"
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   placeholder="Bonnie Green" required />
               </div>
 
               <div>
-                <label for="your_email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Your
+                <label for="your_email" class="mb-2 block text-sm font-medium dark:text-white"> Your
                   email* </label>
                 <input type="email" id="your_email"
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                   placeholder="name@flowbite.com" required />
               </div>
-
               <div>
                 <div class="mb-2 flex items-center gap-2">
-                  <label for="select-country-input-3" class="block text-sm font-medium text-gray-900 dark:text-white">
-                    Country* </label>
-                </div>
-                <select id="select-country-input-3"
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
-                  <option selected>United States</option>
-                  <option value="AS">Australia</option>
-                  <option value="FR">France</option>
-                  <option value="ES">Spain</option>
-                  <option value="UK">United Kingdom</option>
-                </select>
-              </div>
-
-              <div>
-                <div class="mb-2 flex items-center gap-2">
-                  <label for="select-city-input-3" class="block text-sm font-medium text-gray-900 dark:text-white">
+                  <label for="select-city-input-3" class="block text-sm font-medium dark:text-white">
                     City* </label>
                 </div>
                 <select id="select-city-input-3"
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
                   <option selected>San Francisco</option>
                   <option value="NY">New York</option>
                   <option value="LA">Los Angeles</option>
@@ -90,13 +72,19 @@
                   <option value="HU">Houston</option>
                 </select>
               </div>
-
               <div>
-                <label for="phone-input-3" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Phone
+                <label for="address" class="mb-2 block text-sm font-medium dark:text-white"> complete address
+                </label>
+                <input type="text" id="address"
+                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                  placeholder="A-180, block 8, Karachi ..." required />
+              </div>
+              <div>
+                <label for="phone-input-3" class="mb-2 block text-sm font-medium dark:text-white"> Phone
                   Number* </label>
                 <div class="flex items-center">
                   <button id="dropdown-phone-button-3" data-dropdown-toggle="dropdown-phone-3"
-                    class="z-10 inline-flex shrink-0 items-center rounded-s-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+                    class="z-10 inline-flex shrink-0 items-center rounded-s-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                     type="button">
                     <svg fill="none" aria-hidden="true" class="me-2 h-4 w-4" viewBox="0 0 20 15">
                       <rect width="19.6" height="14" y=".5" fill="#fff" rx="2" />
@@ -146,7 +134,7 @@
                       aria-labelledby="dropdown-phone-button-2">
                       <li>
                         <button type="button"
-                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem">
                           <span class="inline-flex items-center">
                             <svg fill="none" aria-hidden="true" class="me-2 h-4 w-4" viewBox="0 0 20 15">
@@ -190,7 +178,7 @@
                       </li>
                       <li>
                         <button type="button"
-                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem">
                           <span class="inline-flex items-center">
                             <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15">
@@ -216,7 +204,7 @@
                       </li>
                       <li>
                         <button type="button"
-                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem">
                           <span class="inline-flex items-center">
                             <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15"
@@ -259,7 +247,7 @@
                       </li>
                       <li>
                         <button type="button"
-                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem">
                           <span class="inline-flex items-center">
                             <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15">
@@ -309,7 +297,7 @@
                       </li>
                       <li>
                         <button type="button"
-                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="inline-flex w-full rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-gray-100 hover dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem">
                           <span class="inline-flex items-center">
                             <svg class="me-2 h-4 w-4" fill="none" viewBox="0 0 20 15">
@@ -334,202 +322,111 @@
                   </div>
                   <div class="relative w-full">
                     <input type="text" id="phone-input"
-                      class="z-20 block w-full rounded-e-lg border border-s-0 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
+                      class="z-20 block w-full rounded-e-lg border border-s-0 border-gray-300 bg-gray-50 p-2.5 text-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-s-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500"
                       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required />
                   </div>
                 </div>
               </div>
 
-              <div>
-                <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Email </label>
-                <input type="email" id="email"
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="name@flowbite.com" required />
-              </div>
-
-              <div>
-                <label for="company_name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Company
-                  name </label>
-                <input type="text" id="company_name"
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="Flowbite LLC" required />
-              </div>
-
-              <div>
-                <label for="vat_number" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> VAT number
-                </label>
-                <input type="text" id="vat_number"
-                  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
-                  placeholder="DE42313253" required />
-              </div>
-
-              <div class="sm:col-span-2">
-                <button type="submit"
-                  class="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">
-                  <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M5 12h14m-7 7V5" />
-                  </svg>
-                  Add new address
-                </button>
-              </div>
             </div>
           </div>
 
           <div class="space-y-4">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Payment</h3>
+            <h3 class="text-xl font-semibold dark:text-white">Payment</h3>
 
             <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
-                <div class="flex items-start">
+              <div class="rounded-lg border border-tango border-dashed p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
+                <div class="flex items-start gap-3">
                   <div class="flex h-5 items-center">
                     <input id="credit-card" aria-describedby="credit-card-text" type="radio" name="payment-method"
                       value=""
-                      class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
+                      class="h-4 w-4 border-gray-300 bg-white text-primary-600  dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
                       checked />
                   </div>
 
                   <div class="ms-4 text-sm">
-                    <label for="credit-card" class="font-medium leading-none text-gray-900 dark:text-white"> Credit Card
+                    <label for="credit-card" class="font-medium leading-none"> Cash On Delivery
                     </label>
-                    <p id="credit-card-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Pay with
-                      your credit card</p>
+                    <p id="credit-card-text" class="mt-1 text-xs font-normal">Pay when deleivered</p>
                   </div>
                 </div>
 
-                <div class="mt-4 flex items-center gap-2">
-                  <button type="button"
-                    class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Delete</button>
-
-                  <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
-
-                  <button type="button"
-                    class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Edit</button>
-                </div>
               </div>
-
-              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
-                <div class="flex items-start">
+              <div class="rounded-lg border border-tango border-dashed p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
+                <div class="flex items-start gap-3">
                   <div class="flex h-5 items-center">
-                    <input id="pay-on-delivery" aria-describedby="pay-on-delivery-text" type="radio"
+                    <input id="credit-card" aria-describedby="credit-card-text" type="radio" name="payment-method"
+                      value=""
+                      class="h-4 w-4 border-gray-300 bg-white text-primary-600  dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
+                      checked />
+                  </div>
+
+                  <div class="ms-4 text-sm">
+                    <label for="credit-card" class="font-medium leading-none"> E-Transaction
+                    </label>
+                    <p id="credit-card-text" class="mt-1 text-xs font-normal">Pay through Mobile Banking</p>
+                  </div>
+                </div>
+
+              </div>
+              <div
+                class="rounded-lg border border-tango border-dashed p-4 ps-4 dark:border-gray-700 dark:bg-gray-800 hover:opacity-40 cursor-not-allowed transition-all">
+                <div class="flex items-start gap-3">
+                  <div class="flex h-5 items-center">
+                    <input id="credit-card" aria-describedby="credit-card-text" disabled type="radio"
                       name="payment-method" value=""
-                      class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
+                      class="h-4 w-4 border-gray-300 bg-white text-primary-600  dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
                   </div>
 
                   <div class="ms-4 text-sm">
-                    <label for="pay-on-delivery" class="font-medium leading-none text-gray-900 dark:text-white"> Payment
-                      on delivery </label>
-                    <p id="pay-on-delivery-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">+$15
-                      payment processing fee</p>
-                  </div>
-                </div>
-
-                <div class="mt-4 flex items-center gap-2">
-                  <button type="button"
-                    class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Delete</button>
-
-                  <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
-
-                  <button type="button"
-                    class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Edit</button>
-                </div>
-              </div>
-
-              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
-                <div class="flex items-start">
-                  <div class="flex h-5 items-center">
-                    <input id="paypal-2" aria-describedby="paypal-text" type="radio" name="payment-method" value=""
-                      class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
-                  </div>
-
-                  <div class="ms-4 text-sm">
-                    <label for="paypal-2" class="font-medium leading-none text-gray-900 dark:text-white"> Paypal account
+                    <label for="credit-card" class="font-medium leading-none"> Direct Payment
                     </label>
-                    <p id="paypal-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Connect to
-                      your account</p>
+                    <p id="credit-card-text" class="mt-1 text-xs font-normal">Coming Soon</p>
                   </div>
                 </div>
 
-                <div class="mt-4 flex items-center gap-2">
-                  <button type="button"
-                    class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Delete</button>
-
-                  <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
-
-                  <button type="button"
-                    class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Edit</button>
-                </div>
               </div>
             </div>
           </div>
 
           <div class="space-y-4">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Delivery Methods</h3>
+            <h3 class="text-xl font-semibold dark:text-white">E-Transaction</h3>
 
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
-                <div class="flex items-start">
-                  <div class="flex h-5 items-center">
-                    <input id="dhl" aria-describedby="dhl-text" type="radio" name="delivery-method" value=""
-                      class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600"
-                      checked />
-                  </div>
-
-                  <div class="ms-4 text-sm">
-                    <label for="dhl" class="font-medium leading-none text-gray-900 dark:text-white"> $15 - DHL Fast
-                      Delivery </label>
-                    <p id="dhl-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Get it by
-                      Tommorow</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
-                <div class="flex items-start">
-                  <div class="flex h-5 items-center">
-                    <input id="fedex" aria-describedby="fedex-text" type="radio" name="delivery-method" value=""
-                      class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
-                  </div>
-
-                  <div class="ms-4 text-sm">
-                    <label for="fedex" class="font-medium leading-none text-gray-900 dark:text-white"> Free Delivery -
-                      FedEx </label>
-                    <p id="fedex-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Get it by
-                      Friday, 13 Dec 2023</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 ps-4 dark:border-gray-700 dark:bg-gray-800">
-                <div class="flex items-start">
-                  <div class="flex h-5 items-center">
-                    <input id="express" aria-describedby="express-text" type="radio" name="delivery-method" value=""
-                      class="h-4 w-4 border-gray-300 bg-white text-primary-600 focus:ring-2 focus:ring-primary-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
-                  </div>
-
-                  <div class="ms-4 text-sm">
-                    <label for="express" class="font-medium leading-none text-gray-900 dark:text-white"> $49 - Express
-                      Delivery </label>
-                    <p id="express-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Get it today
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div class="">
+              <p class="w-full">
+                Title: Hammas Masood <br>
+                Bank: UBL <br>
+                Acc no: 1176293450339 <br>
+                IBAN: PK48UNIL0109000293450339 <br>
+                Branch: PTV center Karachi
+              </p>
+              <p class="bg-tango p-3 text-white text-sm rounded-lg w-fit my-5">
+                <strong>Note:</strong> Please forward your paid receipt at following whatsApp number
+              </p>
+              <a href="https://wa.me/923272558948" target="_blank" class="text-tango flex items-center gap-2">
+                <span class="sr-only">WhatApp</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" />
+                </svg>
+                <span class="text-ebonyClay font-semibold">
+                  +92 327 2558948
+                </span>
+              </a>
             </div>
           </div>
 
-          <div>
-            <label for="voucher" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Enter a gift
+          <!-- <div>
+            <label for="voucher" class="mb-2 block text-sm font-medium dark:text-white"> Enter a gift
               card, voucher or promotional code </label>
             <div class="flex max-w-md items-center gap-4">
               <input type="text" id="voucher"
-                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                 placeholder="" required />
               <button type="button"
                 class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply</button>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md">
@@ -537,7 +434,7 @@
             <div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
               <dl class="flex items-center justify-between gap-4 py-3">
                 <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Subtotal</dt>
-                <dd class="text-base font-medium text-gray-900 dark:text-white">$8,094.00</dd>
+                <dd class="text-base font-medium dark:text-white">$8,094.00</dd>
               </dl>
 
               <dl class="flex items-center justify-between gap-4 py-3">
@@ -547,17 +444,17 @@
 
               <dl class="flex items-center justify-between gap-4 py-3">
                 <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Store Pickup</dt>
-                <dd class="text-base font-medium text-gray-900 dark:text-white">$99</dd>
+                <dd class="text-base font-medium dark:text-white">$99</dd>
               </dl>
 
               <dl class="flex items-center justify-between gap-4 py-3">
                 <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Tax</dt>
-                <dd class="text-base font-medium text-gray-900 dark:text-white">$199</dd>
+                <dd class="text-base font-medium dark:text-white">$199</dd>
               </dl>
 
               <dl class="flex items-center justify-between gap-4 py-3">
-                <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-                <dd class="text-base font-bold text-gray-900 dark:text-white">$8,392.00</dd>
+                <dt class="text-base font-bold dark:text-white">Total</dt>
+                <dd class="text-base font-bold dark:text-white">$8,392.00</dd>
               </dl>
             </div>
           </div>
