@@ -8,6 +8,7 @@ interface CartItem {
   color: string;
   quantity: number;
   image: string;
+  category: string;
 }
 
 interface CartState {
@@ -35,6 +36,7 @@ export const useCartStore = defineStore('cart', {
         this.items.push({
           id: product.id,
           name: product.name,
+          category: product.category,
           price: product.price,
           size,
           color,

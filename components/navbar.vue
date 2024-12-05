@@ -99,8 +99,7 @@ input:checked+div span.line-2 {
       <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
       <div :class="isOpenBurgerMenu ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'"
         class="absolute  inset-x-0 justify-center z-20 grow px-6 bg-linen py-4 transition-all duration-300 ease-in-out lg:mt-0 max-w-7xl mx-auto lg:p-0 top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
-        <div
-          class="flex flex-col lg:flex-row gap-3 items-center  justify-center md:justify-between w-full  px-10 mt-2">
+        <div class="flex flex-col lg:flex-row gap-3 items-center  justify-center md:justify-between w-full  px-10 mt-2">
 
           <NuxtLink to="/" class="self">
 
@@ -120,8 +119,11 @@ input:checked+div span.line-2 {
             </NuxtLink>
           </span>
           <NuxtLink to="/cart">
-            <div class="flex gap-5 md:self-auto self-end ">
-
+            <div class="flex gap-5 md:self-auto self-end relative">
+              <div
+                class="absolute -top-3 -right-3 flex items-center justify-center bg-tango w-4 h-4 p-1 rounded-full text-xs text-white text-center">
+                {{ useCartStore().items.length || 0 }}
+              </div>              
               <!-- <NuxtLink to="/auth/login"
                             class="px-4 py-2 text-center font-medium text-sm rounded-md text-purplHeart border border-purplHeart cursor-pointer hover:bg-purplHeart hover:text-white transition-all">
                             Login</NuxtLink>
@@ -143,6 +145,7 @@ input:checked+div span.line-2 {
   </nav>
 </template>
 <script setup>
+import { useCartStore } from '@/stores/CartStore'
 const isOpenBurgerMenu = ref(false);
 
 const NavbarLink = [

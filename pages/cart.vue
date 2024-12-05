@@ -9,14 +9,17 @@
           <h1 v-else class="text-xl font-headings font-bold sm:text-3xl">
             Your Cart is Empty..!
           </h1>
-        </header>        
+        </header>
+        <!-- <pre>
+          {{ useCartStore().items }}
+        </pre> -->
         <ClientOnly>
           <div v-if="cartData.items.length"
             class="mt-8 border md:p-6 p-3 border-dashed border-codGrey rounded-xl bg-white">
             <ul class="space-y-4">
               <li v-for="(item, index) in cartData.items" :key="index"
                 class="flex items-center gap-4 border border-codGrey border-dashed p-2 rounded-lg bg-linen">
-                <img src="/Logo_Mascot_Dark.png" alt="" class="h-10 w-10 rounded object-cover">
+                <img :src="item.image" :alt="item.name" class="h-16 w-10 rounded object-cover">
                 <div>
                   <h3 class="text-sm text-gray-900">
                     {{ item.name }}
@@ -40,10 +43,21 @@
                         {{ item.color }}
                       </dd>
                     </div>
+                    <div>
+                      <dt class="inline">
+                        Category:
+                      </dt>
+                      <dd class="inline">
+                        {{ item.category }}
+                      </dd>
+                    </div>
                   </dl>
                 </div>
 
                 <div class="flex flex-1 items-center justify-end gap-2">
+                  <span class="text-tango">
+                    {{ item.quantity }}
+                  </span>
                   <button @click="removeItemFromCart(item.id, item.size, item.color)"
                     class="text-gray-600 transition hover:text-[#f55a5a]">
                     <span class="sr-only">Remove item</span>
@@ -105,7 +119,7 @@
 <script setup>
 import { useCartStore } from '@/stores/CartStore'
 const cartData = useCartStore()
-const removeItemFromCart = (productId, size, color) => {
-  cartData.removeFromCart(productId, size, color)
+const removeItemFromCart = (productId, size, color, category) => {
+  cartData.removeFromCart(productId, size, color, category)
 }
 </script>

@@ -147,7 +147,9 @@ const addToCart = () => {
     {
       id: apiData.value.id,
       name: apiData.value.name,
-      price: apiData.value.price
+      price: apiData.value.price,
+      category: apiData.value.category,
+      image: apiData.value.image
     },
     selectedSize.value,
     selectedColor.value,
