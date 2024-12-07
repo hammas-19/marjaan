@@ -2,7 +2,7 @@
   <div class="bg-linen">
     <!-- Debugging -->
     <!-- <pre>{{ stringifyCartItems }}</pre> -->
-<!-- <pre>{{ apiData }}</pre> -->
+    <!-- <pre>{{ apiData }}</pre> -->
     <section v-if="apiData" class="max-w-7xl mx-auto md:px-6 px-2 md:py-5 py-2">
       <div class="relative mx-auto py-8">
         <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
@@ -25,9 +25,9 @@
               <div class="prose max-w-none">
                 <p>{{ apiData.description }}</p>
               </div>
-              <button class="mt-2 text-sm font-medium underline">
+              <!-- <button class="mt-2 text-sm font-medium underline">
                 Read More
-              </button>
+              </button> -->
             </div>
           </div>
 
@@ -46,6 +46,11 @@
 
           <!-- Add to Cart -->
           <div class="sticky flex flex-col justify-center h-full">
+            <div class="h-[45px] self-end w-full">
+              <div v-if="AddedtoCart" class="bg-tango rounded-lg px-3 py-3 w-full text-white  text-sm">
+                1 item added to cart!
+              </div>
+            </div>
             <div class="p-4">
               <form class="mt-8">
                 <fieldset>
@@ -55,11 +60,11 @@
                   <div class="flex flex-wrap gap-1">
                     <label v-for="(color, index) in apiData.available_colours" :key="index" class="cursor-pointer">
                       <input type="radio" name="color" class="peer sr-only" />
-                      
-                        <NuxtLink :to="'/productDetails/' + color.slug">
-                        
-                      <span
-                        class="group inline-block rounded-full border px-3 py-2 text-xs font-medium peer-checked:bg-black peer-checked:text-white hover:text-white hover:bg-[#BF5700] transition-all"
+
+                      <NuxtLink :to="'/productDetails/' + color.slug">
+
+                        <span
+                          class="group inline-block rounded-full border px-3 py-2 text-xs font-medium peer-checked:bg-black peer-checked:text-white hover:text-white hover:bg-[#BF5700] transition-all"
                           :style="{ backgroundColor: color.color }">
                         </span>
                       </NuxtLink>
@@ -91,14 +96,26 @@
                     @click="addToCart">
                     Add to Cart
                   </button>
+                  <NuxtLink to="/cart"
+                    class="border border-tango rounded-md p-2 flex justify-center items-center gap-2">
+                    <span class="text-xs">
+                      Go to Cart
+                    </span>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                      stroke="#525252" stroke-width="2" data-v-1eb027a8="">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                      </path>
+                    </svg>
+                  </NuxtLink>
                 </div>
               </form>
             </div>
-            <button type="button"
+            <!-- <button type="button"
               class="block rounded bg-tango px-5 py-3 text-xs font-medium text-white hover:bg-bisonHide transition-all duration-300"
               @click="clearCart">
               Clear Cart
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -114,14 +131,15 @@ const route = useRoute()
 const apiData = ref(null)
 const selectedColor = ref(null)
 const selectedSize = ref(null)
+const AddedtoCart = ref(false)
 const selectedQuantity = ref(1)
 
 const cartStore = useCartStore()
 
 // Safely stringify cart items for debugging
-const stringifyCartItems = computed(() =>
-  JSON.stringify(cartStore.items, null, 2)
-)
+// const stringifyCartItems = computed(() =>
+//   JSON.stringify(cartStore.items, null, 2)
+// )
 
 onMounted(() => {
   const url = `https://marjan-backend.up.railway.app/products/${route.params.slug}`
@@ -156,8 +174,15 @@ const addToCart = () => {
     selectedQuantity.value
   )
 
-  alert('Product added to cart!')
+  // Show the "added to cart" notification
+  AddedtoCart.value = true
+
+  // Hide the notification after 3 seconds
+  setTimeout(() => {
+    AddedtoCart.value = false
+  }, 3000)
 }
+
 
 const clearCart = () => {
   cartStore.clearCart()
