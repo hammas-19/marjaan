@@ -1,5 +1,20 @@
 <template>
-  <div class="bg-linen">
+  <div class="bg-linen relative z-0">
+    <div v-if="isSizeGuideOpen" class="w-full h-screen  absolute z-20 inset-o flex justify-center items-center">
+      <SizeGuide>
+        <template #closeModal>
+          <span class="cursor-pointer hover:text-tango transition-all flex w-full justify-end" @click="isSizeGuideOpen = false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 21 21">
+              <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                transform="translate(2 2)">
+                <circle cx="8.5" cy="8.5" r="8" />
+                <path d="m5.5 5.5l6 6m0-6l-6 6" />
+              </g>
+            </svg>
+          </span>
+        </template>
+      </SizeGuide>
+    </div>
     <!-- Debugging -->
     <!-- <pre>{{ stringifyCartItems }}</pre> -->
     <!-- <pre>{{ apiData }}</pre> -->
@@ -10,6 +25,9 @@
           <div class="sticky flex flex-col justify-center h-full px-4">
             <div class="mt-8 flex justify-between">
               <div class="space-y-1">
+                <p class="text-xs font-semibold">
+                  {{ apiData.category }}
+                </p>
                 <h1 class="text-xl sm:text-3xl font-headings">
                   {{ apiData.name }}
                 </h1>
@@ -25,9 +43,9 @@
               <div class="prose max-w-none">
                 <p>{{ apiData.description }}</p>
               </div>
-              <!-- <button class="mt-2 text-sm font-medium underline">
-                Read More
-              </button> -->
+              <button @click="isSizeGuideOpen = true" class="mt-2 text-sm font-medium underline">
+                Size Guide
+              </button>
             </div>
           </div>
 
@@ -132,6 +150,7 @@ const apiData = ref(null)
 const selectedColor = ref(null)
 const selectedSize = ref(null)
 const AddedtoCart = ref(false)
+const isSizeGuideOpen = ref(false)
 const selectedQuantity = ref(1)
 
 const cartStore = useCartStore()
