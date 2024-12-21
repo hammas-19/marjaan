@@ -5,9 +5,8 @@
          <Hero />
       </section>
       <!-- Creators Selected -->
-      <section class="py-5 md:px-5 px-2">
+      <section class="py-5 md:px-5 px-2 md:h-[575px] h-[468px]">
          <!-- Desc & Handle -->
-         <ClientOnly>
             <div class="max-w-7xl mx-auto  px-3 flex justify-between items-end md:pb-5 pb-3">
                <div class="flex flex-col text-black">
                   <span class="md:text-xl text-sm font-headings">Mixed</span>
@@ -19,7 +18,6 @@
                   View All
                </NuxtLink> -->
             </div>
-         </ClientOnly>
          <Tabs>
             <template #cat1>
                T-Shirts
@@ -34,7 +32,7 @@
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
                   <template v-if="isLoading">
                      <div v-for="(items) in 10" :key="items"
-                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                        class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
                   </template>
                   <template v-else>
                      <ProductCard :product-data="teesData" class="" />
@@ -47,7 +45,7 @@
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
                   <template v-if="isLoading">
                      <div v-for="(items) in 10" :key="items"
-                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                        class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
                   </template>
                   <template v-else>
                      <ProductCard :product-data="hoodData" class="" />
@@ -58,7 +56,7 @@
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
                   <template v-if="isLoading">
                      <div v-for="(items) in 10" :key="items"
-                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                        class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
                   </template>
                   <template v-else>
                      <ProductCard :product-data="sweatData" class="" />
@@ -75,9 +73,8 @@
       </section>
 
       <!-- BestSellers -->
-      <section class="py-5 md:px-5 px-2">
+      <section class="py-5 md:px-5 px-2 md:h-[575px] h-[468px]">
          <!-- Desc & Handle -->
-         <ClientOnly>
             <div class="max-w-7xl mx-auto  px-3 flex justify-between items-end md:pb-5 pb-3">
                <div class="flex flex-col text-black">
                   <span class="md:text-xl text-sm font-headings">Shop</span>
@@ -89,7 +86,6 @@
                   View All
                </NuxtLink> -->
             </div>
-         </ClientOnly>
          <Tabs class="">
             <template #cat1>
                T-Shirts
@@ -104,7 +100,7 @@
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
                   <template v-if="isLoading">
                      <div v-for="(items) in 10" :key="items"
-                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                        class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
                   </template>
                   <template v-else>
                      <ProductCard :product-data="teesData" />
@@ -117,7 +113,7 @@
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
                   <template v-if="isLoading">
                      <div v-for="(items) in 10" :key="items"
-                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                        class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
                   </template>
                   <template v-else>
                      <ProductCard :product-data="hoodData" />
@@ -128,7 +124,7 @@
                <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
                   <template v-if="isLoading">
                      <div v-for="(items) in 10" :key="items"
-                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                        class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
                   </template>
                   <template v-else>
                      <ProductCard :product-data="sweatData" />

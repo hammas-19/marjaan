@@ -7,16 +7,15 @@
                 class="grid sm:grid-cols-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center md:gap-10 gap-1">
                 <!-- The poster -->
                 <div
-                    class="relative bg-moss rounded-3xl w-full max-w-3xl overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2">
+                    class="relative bg-moss rounded-3xl w-full max-w-3xl overflow-hidden transition-all duration-300 col-span-2 md:h-[385px]">
 
-                    <img src="https://alphaleteathletics.com/cdn/shop/collections/lifestyle_2500x1050_crop_center.jpg?v=1725725985"
-                        class="object-cover h-full w-full" alt="">
+                    <img src="/gridImages/hoodieLevis.jpg" class="object-cover h-full w-full" alt="Rechik Hoodies in stylish modern designs">
                     <div
                         class="absolute md:bottom-5 bottom-2 left-5 flex flex-col md:gap-2 gap-1 md:max-w-[250px] max-w-[180px] bg-graphite p-5 rounded-2xl bg-opacity-40 backdrop-blur-md">
 
                         <h1 class="md:text-6xl text-2xl font-headings font-bold text-white">Hoodies</h1>
                         <span class="text-white md:text-lg text-sm">
-                            Your State of Mind
+                            Bold Hoodie Vibes
                         </span>
 
                     </div>
@@ -24,8 +23,8 @@
                 </div>
 
                 <template v-if="!teesData.length">
-                    <div v-for="(items) in 10" :key="items"
-                        class="w-[120px] md:w-[140px] lg:w-[210px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                    <div v-for="(items) in 6" :key="items"
+                        class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
                 </template>
                 <template v-else>
                     <ProductCard :product-data="teesData" />
