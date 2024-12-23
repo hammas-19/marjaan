@@ -102,29 +102,55 @@
 <script setup>
 const testimonials = [
   {
-    name: "Yawar Ali",
-    city: "Karachi",
-    comments: "This platform exceeded my expectations. Truly amazing!"
+    name: 'Yawar Ali',
+    city: 'Karachi',
+    comments: 'This store exceeded my expectations. The quality is truly amazing!'
   },
   {
-    name: "Uzair Alam",
-    city: "Karachi",
-    comments: "A fantastic experience from start to finish!"
+    name: 'Uzair Alam',
+    city: 'Karachi',
+    comments: 'A fantastic shopping experience from start to finish!'
   },
   {
-    name: "Fiza Fatima",
-    city: "Quetta",
-    comments: "Highly recommend this to everyone. Great service!"
+    name: 'Fiza Fatima',
+    city: 'Quetta',
+    comments: 'Highly recommend this store to everyone. Great products and service!'
   },
   {
-    name: "Saad Askari",
-    city: "Hyderabad Sindh",
-    comments: "The team is outstanding. Really impressed!"
+    name: 'Saad Adam',
+    city: 'Hyderabad Sindh',
+    comments: 'The team is outstanding, and the clothing is really impressive!'
   },
   {
-    name: "Kashaf Razzaq",
-    city: "Islamabad",
-    comments: "An absolute game-changer for my workflow!"
+    name: 'Kashaf Razzaq',
+    city: 'Islamabad',
+    comments: 'This store is an absolute game-changer for my wardrobe!'
+  },
+  {
+    name: 'Hassan Tariq',
+    city: 'Lahore',
+    comments: "Top-quality clothing at affordable prices. Can't ask for more!"
+  },
+  {
+    name: 'Areeba Khan',
+    city: 'Peshawar',
+    comments: 'The premium products here are worth every penny. Highly satisfied!'
+  },
+  {
+    name: 'Zainab Siddiqui',
+    city: 'Multan',
+    comments: 'Affordable and trendy outfits. Perfect for every occasion!'
+  },
+  {
+    name: 'Farhan Sheikh',
+    city: 'Rawalpindi',
+    comments: "Premium quality at a price that doesn't break the bank. Love it!"
+  },
+  {
+    name: 'Mariam Ali',
+    city: 'Faisalabad',
+    comments: 'Stylish designs and great service. A perfect shopping destination!'
   }
-];
+]
+
 </script>
