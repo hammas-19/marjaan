@@ -291,7 +291,7 @@ const sendOrderData = async () => {
     address: address.value,
     city: city.value,
     payment_method: selectedPayment.value,
-    order_items: [{ "name": "African Lies White", "quantity": 2 }], 
+    order_items: cartData.items, 
     product_amount: cartData.totalPrice,
     shipping_amount: cartData.totalPrice >= 3000 ? '0': '199',
     coupon_code: 'NOCOUPON',
@@ -300,7 +300,7 @@ const sendOrderData = async () => {
   try {
     const response = await axios.post(url, orderData);
     if (response.data.success) {
-      orderId.value = 'RCK-122-' + response.data.order_id
+      orderId.value = response.data.order_id
       isFormSUbmitted.value = true
       cartData.clearCart()
      }
