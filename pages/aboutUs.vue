@@ -3,7 +3,7 @@
     <div class="lg:container mx-auto py-12 px-3 flex flex-col justify-center items-center gap-5 w-full">
 
       <h1 class="md:text-2xl text-lg font-jost"><span class="text-tango text-3xl font-medium">"</span>
-        A Letter from the Founder
+        Vision For You
         <span class="text-tango text-3xl font-medium">"</span>
       </h1>
       <div
@@ -20,34 +20,33 @@
           <div class="flex flex-col gap-3">
             <h3 class="text-2xl font-medium font-jost text-ebonyClay">Hello and welcome!</h3>
             <p class="text-base text-comet">
-              I’m thrilled to have you here in this unique space where premium quality meets thoughtful affordability.
-              My name is Hammas Masood, and I’m the proud founder of this clothing store, built with a vision to make
-              fashion both luxurious and accessible to all.
+              At Rechik, we believe fashion should be both luxurious and accessible. Our vision is to redefine the
+              shopping experience by offering premium-quality clothing at thoughtfully balanced prices, ensuring that
+              elegance and comfort are within reach for everyone.
             </p>
-          </div>
-          <div class="flex flex-col gap-3">
-              <p class="text-base text-comet">
-              Every piece in my collection is a labor of love, crafted with care and attention to detail to ensure that
-              it meets the highest standards. From sourcing premium fabrics to refining every stitch, I’ve made it my
-              mission to bring you clothing that speaks of quality, comfort, and style. But here’s the best part—while
-              the quality remains unmatched, the prices are intentionally balanced, making them friendly for every
-              budget and every class.
-              </p>
           </div>
           <div class="flex flex-col gap-3">
             <p class="text-base text-comet">
-              This store isn’t just about clothing—it’s about sharing a dream and a commitment to fairness. When you
-              shop here, you’re embracing a blend of value and luxury that’s as unique as you are. <br> <br>
-              Thank you for being part of this incredible journey. I can’t wait to help you discover something special!
+              We are committed to sourcing the finest fabrics, refining every stitch, and upholding the highest
+              standards of craftsmanship. Our approach blends quality, affordability, and timeless style, allowing
+              individuals from all walks of life to express themselves with confidence.
             </p>
           </div>
           <div class="flex flex-col gap-3">
+            <p class="text-base text-comet">
+              More than just a clothing brand, we stand for fairness, inclusivity, and value. Every piece we create
+              reflects our dedication to providing fashion that embodies sophistication without compromise. <br><br>
+
+              Join us on this journey as we continue to make luxury fashion an experience everyone can enjoy.
+            </p>
+          </div>
+          <!-- <div class="flex flex-col gap-3">
             <p class="text-base text-comet">
               Warm regards, <br>
               Hammas Masood <br>
               Founder and Owner
             </p>
-          </div>          
+          </div> -->
         </div>
       </div>
     </div>
