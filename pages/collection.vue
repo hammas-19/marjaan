@@ -93,7 +93,7 @@ const fetchProducts = async () => {
     )?.name || collectins[0].name
 
     const response = await $fetch(
-      `https://marjan-backend.up.railway.app/products/?collection=${encodeURIComponent(activeCollectionName)}`
+      `https://marjan-backend-production.up.railway.app/products/?collection=${encodeURIComponent(activeCollectionName)}`
     )
     products.value = response.data
     filterProducts()

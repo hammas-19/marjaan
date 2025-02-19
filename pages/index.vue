@@ -155,7 +155,7 @@ const BestsellerteesData = ref([])
 const isLoading = ref(true) // To track loading state
 
 // Fetch data using promises
-axios.get('https://marjan-backend.up.railway.app/products/?category=Tshirts')
+axios.get('https://marjan-backend-production.up.railway.app/products/?category=Tshirts')
   .then((response) => {
     teesData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values
@@ -173,7 +173,7 @@ const BestsellerhoodData = ref([])
 
 
 // Fetch data using promises
-axios.get('https://marjan-backend.up.railway.app/products/?category=Hoodies')
+axios.get('https://marjan-backend-production.up.railway.app/products/?category=Hoodies')
   .then((response) => {
     hoodData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values
@@ -191,7 +191,7 @@ const sweatData = ref([])
 const BestsellersweatData = ref([])
 
 // Fetch data using promises
-axios.get('https://marjan-backend.up.railway.app/products/?category=SweatShirts')
+axios.get('https://marjan-backend-production.up.railway.app/products/?category=SweatShirts')
   .then((response) => {
     sweatData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values

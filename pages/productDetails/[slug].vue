@@ -161,7 +161,7 @@ const cartStore = useCartStore()
 // )
 
 onMounted(() => {
-  const url = `https://marjan-backend.up.railway.app/products/${route.params.slug}`
+  const url = `https://marjan-backend-production.up.railway.app/products/${route.params.slug}`
 
   axios
     .get(url)

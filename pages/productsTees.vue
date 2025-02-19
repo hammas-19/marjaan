@@ -39,7 +39,7 @@ import axios from 'axios'
 const teesData = ref([])
 
 // Fetch the data and sort in descending order
-axios.get('https://marjan-backend.up.railway.app/products/?category=Tshirts')
+axios.get('https://marjan-backend-production.up.railway.app/products/?category=Tshirts')
   .then(response => {
     teesData.value = response.data.data.sort((a, b) => {
       // Replace 'property' with the actual property you want to sort by

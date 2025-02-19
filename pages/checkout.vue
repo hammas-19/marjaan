@@ -281,7 +281,7 @@ const isSubmitDisabled = computed(() => {
   return fullName.value === '' || !isInvalidEmail || !isInvalidPhoneNumber || city.value === '' || address.value === ''
 })
 const sendOrderData = async () => {
-  const url = 'https://marjan-backend.up.railway.app/order/';
+  const url = 'https://marjan-backend-production.up.railway.app/order/';
 
   // Dummy values if fields are empty
   const orderData = {
