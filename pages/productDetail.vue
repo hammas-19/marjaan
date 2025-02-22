@@ -220,7 +220,7 @@
             <span class="md:text-xl text-sm font-headings">Men's</span>
             <h1 class="md:text-2xl text-xl font-headings">You May aslo Like</h1>
           </div>
-          <NuxtLink to="/ProductsTees" class="md:text-xl text-sm">
+          <NuxtLink to="/productsGraphic" class="md:text-xl text-sm">
             View All
           </NuxtLink>
 

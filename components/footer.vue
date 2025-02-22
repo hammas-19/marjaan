@@ -58,15 +58,15 @@
 const footerLinks = [
   {
     name: "T-Shirts",
-    href: "/ProductsTees",
+    href: "/productsGraphic",
   },
   {
-    name: "Hoodies",
-    href: "/productsHood",
+    name: "Drop Shoulder",
+    href: "/productsDrop",
   },
   {
-    name: "SweatShirts",
-    href: "/ProductsSweats",
+    name: "Basics",
+    href: "/productsBasic",
   },
   {
     name: "Collections",

@@ -10,17 +10,17 @@
         Shop
       </span>
       <div class="flex flex-wrap gap-2">
-        <NuxtLink to="/productsTees"
+        <NuxtLink to="/productsGraphic"
           class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all text-left hover:text-center rounded-md bg-white md:text-xl text-base font-semibold">
-          T-Shirts
+          Graphic Tees
         </NuxtLink>
-        <NuxtLink to="/productsHood"
+        <NuxtLink to="/productsDrop"
           class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all text-left hover:text-center rounded-md bg-white md:text-xl text-base font-semibold">
-          Hoodies
+          Drop Shoulders
         </NuxtLink>
-        <NuxtLink to="productsSweats"
+        <NuxtLink to="/productsBasic"
           class="text-graphite md:py-2 py-1 md:px-4 px-2 w-fit hover:w-auto opacity-10 hover:opacity-100 transition-all text-left hover:text-center rounded-md bg-white md:text-xl text-base font-semibold">
-          SweatShirts
+          Basics
         </NuxtLink>
       </div>
     </div>

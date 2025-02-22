@@ -20,13 +20,13 @@
       </div>
       <Tabs>
         <template #cat1>
-          T-Shirts
+          Graphic
         </template>
         <template #cat2>
-          Hoodies
+          Dop shoulders
         </template>
         <template #cat3>
-          SweatShirts
+          Basics
         </template>
         <template #category1>
           <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
@@ -88,13 +88,13 @@
       </div>
       <Tabs class="">
         <template #cat1>
-          T-Shirts
+          Graphic
         </template>
         <template #cat2>
-          Hoodies
+          Dop shoulders
         </template>
         <template #cat3>
-          SweatShirts
+          Basics
         </template>
         <template #category1>
           <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
@@ -148,14 +148,13 @@
 </template>
 <script setup>
 import axios from 'axios'
-import { useUserStore } from '~/stores/UserStore'
 
 const teesData = ref([])
 const BestsellerteesData = ref([])
 const isLoading = ref(true) // To track loading state
 
 // Fetch data using promises
-axios.get('https://marjan-backend-production.up.railway.app/products/?category=Tshirts')
+axios.get('https://marjan-backend-production.up.railway.app/products/?category=Graphic')
   .then((response) => {
     teesData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values
@@ -173,7 +172,7 @@ const BestsellerhoodData = ref([])
 
 
 // Fetch data using promises
-axios.get('https://marjan-backend-production.up.railway.app/products/?category=Hoodies')
+axios.get('https://marjan-backend-production.up.railway.app/products/?category=Drop')
   .then((response) => {
     hoodData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values
@@ -191,7 +190,7 @@ const sweatData = ref([])
 const BestsellersweatData = ref([])
 
 // Fetch data using promises
-axios.get('https://marjan-backend-production.up.railway.app/products/?category=SweatShirts')
+axios.get('https://marjan-backend-production.up.railway.app/products/?category=Basic')
   .then((response) => {
     sweatData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values

@@ -150,16 +150,16 @@ const isOpenBurgerMenu = ref(false);
 
 const NavbarLink = [
     {
-        name: "T-Shirts",
-        href: "/ProductsTees",
+        name: "Graphic Tees",
+        href: "/productsGraphic",
     },
     {
-        name: "Hoodies",
-        href: "/productsHood",
+        name: "Drop Shoulders",
+        href: "/productsDrop",
     },
     {
-        name: "SweatShirts",
-        href: "/ProductsSweats",
+        name: "Basics",
+        href: "/productsBasic",
     },
     {
         name: "Collections",

@@ -50,22 +50,22 @@
 
 <script setup>
 const categories = [
-  { name: 'T-Shirts', slug: 'tshirts' },
-  { name: 'Hoodies', slug: 'hoodies' },
-  { name: 'Sweatshirts', slug: 'sweatshirts' }
+  { name: 'Graphic', slug: 'graphic' },
+  { name: 'Drop Shoulders', slug: 'drop' },
+  { name: 'Basics', slug: 'basic' }
 ]
 
 const collectins = [
   {
     id: 1,
-    name: 'Nyctophile',
-    slug: 'nyctophile',
+    name: 'NyctoPhille',
+    slug: 'nyctophille',
     slogan: 'Where Darkness Inspires',
     image: 'https://rechik.s3.ap-southeast-2.amazonaws.com/images/collections/flora.png'
   },
   {
     id: 2,
-    name: 'AURA',
+    name: 'Aura',
     slug: 'aura',
     slogan: 'Radiate Confidence',
     image: 'https://rechik.s3.ap-southeast-2.amazonaws.com/images/collections/RestoredPurple1.png'
