@@ -23,7 +23,7 @@
           Graphic
         </template>
         <template #cat2>
-          Dop shoulders
+          Drop shoulders
         </template>
         <template #cat3>
           Basics
@@ -91,7 +91,7 @@
           Graphic
         </template>
         <template #cat2>
-          Dop shoulders
+          Drop shoulders
         </template>
         <template #cat3>
           Basics

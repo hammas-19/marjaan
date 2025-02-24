@@ -15,7 +15,7 @@
 
             <h1 class="md:text-4xl text-2xl font-headings font-bold text-white">Drop Shoulders</h1>
             <span class="text-white md:text-lg text-sm">
-              Be Baggy vibes
+              Baggy vibes
             </span>
 
           </div>
