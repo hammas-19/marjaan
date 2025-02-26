@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-linen relative z-0 h-screen">
+  <div class="bg-linen relative z-0 h-screen" :class="!apiData ? 'overflow-hidden h-screen' : 'overflow-auto h-auto'">
     <div v-if="isSizeGuideOpen" class="w-full h-screen absolute z-20 inset-0 flex justify-center items-center">
       <SizeGuide>
         <template #closeModal>
