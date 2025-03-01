@@ -1,11 +1,28 @@
 <template>
   <div v-for="(data, index) in props.productData" :key="index"
     class="group hover:border-mineShaft md:w-[320px] w-[170px] md:h-[385px] h-[320px]  md:rounded-2xl rounded-lg overflow-hidden max-w-fit">
+    <!-- <pre>
+{{ data }}
+    </pre> -->
     <NuxtLink :to="'/productDetails/' + data.slug">
       <div class="relative">
         <img :src="data.image"
           class="object-cover md:w-[320px] w-[170px] md:h-[385px] h-[260px] group-hover:opacity-90 transition-all md:rounded-2xl rounded-lg"
           alt="">
+        <div class="absolute w-full top-0">
+          <p v-if="data.is_new"
+            class="text-xs md:text-sm text-white bg-tango px-3 py-1 rounded-full font-medium w-fit md:mt-2 mt-1 md:ml-2 ml-1">
+            New 
+          </p>
+          <!-- <p
+            class="text-xs md:text-sm text-white bg-codGrey px-3 py-1 rounded-full font-medium w-fit md:mt-2 mt-1 md:ml-2 ml-1">
+            New {{ data.is_creator_selector }}
+          </p> -->
+          <p v-if="data.is_out_of_stock"
+            class="text-xs md:text-sm text-white bg-osloGrey px-3 py-1 rounded-full font-medium w-fit md:mt-2 mt-1 md:ml-2 ml-1">
+            Out of Stock
+          </p>
+        </div>
         <div
           class="hidden opacity-0 group-hover:opacity-100 absolute inset-x-0 md:grid grid-cols-3 gap-7 bottom-0 bg-linen transition-all duration-300 px-2 py-3">
           <p class="font-headings text-xs md:text-2xl font-medium grid w-full col-span-2">
@@ -34,6 +51,7 @@
     </NuxtLink>
     <div
       class="md:hidden grid grid-cols-3 gap-1 bg-linen transition-all duration-300 md:p-1 py-1 md:py-0  h-full max-h-[90px] justify-between rounded-md p-1 mt-[2px]">
+
       <p class="font-headings text-xs md:text-2xl font-medium grid w-full col-span-2">
         {{ data.name }}
       </p>
@@ -54,6 +72,7 @@
       </div> -->
     </div>
   </div>
+
 </template>
 <script setup>
 const props = defineProps({

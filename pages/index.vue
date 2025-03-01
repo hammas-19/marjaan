@@ -35,7 +35,7 @@
                 class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
             </template>
             <template v-else>
-              <ProductCard :product-data="teesData" class="" />
+              <ProductCard :product-data="CreatorsGraphicData" class="" />
             </template>
           </div>
           <!-- <ProductSlider1 /> -->
@@ -48,7 +48,7 @@
                 class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
             </template>
             <template v-else>
-              <ProductCard :product-data="hoodData" class="" />
+              <ProductCard :product-data="CreatorsDropData" class="" />
             </template>
           </div>
         </template>
@@ -59,7 +59,7 @@
                 class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
             </template>
             <template v-else>
-              <ProductCard :product-data="sweatData" class="" />
+              <ProductCard :product-data="CreatorsBasicData" class="" />
             </template>
           </div>
           <!-- <ProductSlider1 /> -->
@@ -151,6 +151,9 @@ import axios from 'axios'
 
 const teesData = ref([])
 const BestsellerteesData = ref([])
+const CreatorsGraphicData = ref([])
+const CreatorsDropData = ref([])
+const CreatorsBasicData = ref([])
 const isLoading = ref(true) // To track loading state
 
 // Fetch data using promises
@@ -159,6 +162,7 @@ axios.get('https://marjan-backend-production.up.railway.app/products/?category=G
     teesData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values
     })
+    CreatorsGraphicData.value = response.data.data.filter(item => item.is_creator_selector)
     BestsellerteesData.value = response.data.data.filter(item => item.is_bestseller)
   })
   .catch((error) => {
@@ -177,6 +181,7 @@ axios.get('https://marjan-backend-production.up.railway.app/products/?category=D
     hoodData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values
     })
+    CreatorsDropData.value = response.data.data.filter(item => item.is_creator_selector)
     BestsellerhoodData.value = response.data.data.filter(item => item.is_bestseller)
 
   })
@@ -195,7 +200,8 @@ axios.get('https://marjan-backend-production.up.railway.app/products/?category=B
     sweatData.value = response.data.data.sort((a, b) => {
       return b.id - a.id // For numeric values
     })
-    BestsellersweatData.value = response.data.data.filter(item => item.is_bestseller)
+    BestsellersweatData.value = response.data.data.filter(item => item.is_creator_selector)
+    CreatorsBasicData.value = response.data.data.filter(item => item.is_bestseller)
   })
   .catch((error) => {
     console.error('Error fetching data:', error)
