@@ -32,7 +32,7 @@
           <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
             <template v-if="isLoading">
               <div v-for="(items) in 10" :key="items"
-                class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                class="md:w-[320px] w-[170px] md:h-[385px] h-[320px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
             </template>
             <template v-else>
               <ProductCard :product-data="CreatorsGraphicData" class="" />
@@ -45,7 +45,7 @@
           <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
             <template v-if="isLoading">
               <div v-for="(items) in 10" :key="items"
-                class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                class="md:w-[320px] w-[170px] md:h-[385px] h-[320px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
             </template>
             <template v-else>
               <ProductCard :product-data="CreatorsDropData" class="" />
@@ -56,7 +56,7 @@
           <div class="main grid grid-flow-col gap-2 overflow-x-scroll place-items-start">
             <template v-if="isLoading">
               <div v-for="(items) in 10" :key="items"
-                class="md:w-[320px] w-[170px] h-[385px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
+                class="md:w-[320px] w-[170px] md:h-[385px] h-[320px] md:rounded-2xl rounded-lg bg-bisonHide animate-pulse" />
             </template>
             <template v-else>
               <ProductCard :product-data="CreatorsBasicData" class="" />
