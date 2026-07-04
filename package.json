@@ -5,14 +5,22 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "import:strapi": "tsx scripts/import-strapi-csv.ts",
+    "cache:flush": "tsx scripts/flush-redis.ts"
   },
   "devDependencies": {
+    "@nuxtjs/supabase": "^2.0.9",
     "@nuxtjs/tailwindcss": "^6.3.0",
-    "@pinia/nuxt": "^0.7.0",
-    "nuxt": "^3.14.1592"
+    "@pinia/nuxt": "^0.11.3",
+    "csv-parse": "^7.0.1",
+    "dotenv": "^16.4.7",
+    "nuxt": "^3.14.1592",
+    "tsx": "^4.23.0"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.110.0",
+    "@upstash/redis": "^1.38.0",
     "axios": "^1.4.0",
     "pinia-plugin-persistedstate": "^4.1.3",
     "swiper": "^10.2.0",

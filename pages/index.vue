@@ -147,68 +147,40 @@
   </div>
 </template>
 <script setup>
-import axios from 'axios'
-
 const teesData = ref([])
+const hoodData = ref([])
+const sweatData = ref([])
 const BestsellerteesData = ref([])
+const BestsellerhoodData = ref([])
+const BestsellersweatData = ref([])
 const CreatorsGraphicData = ref([])
 const CreatorsDropData = ref([])
 const CreatorsBasicData = ref([])
-const isLoading = ref(true) // To track loading state
+const isLoading = ref(true)
 
-// Fetch data using promises
-axios.get('https://marjan-backend-production.up.railway.app/products/?category=Graphic')
-  .then((response) => {
-    teesData.value = response.data.data.sort((a, b) => {
-      return b.id - a.id // For numeric values
-    })
-    CreatorsGraphicData.value = response.data.data.filter(item => item.is_creator_selector)
-    BestsellerteesData.value = response.data.data.filter(item => item.is_bestseller)
-  })
-  .catch((error) => {
-    console.error('Error fetching data:', error)
-  })
-  .finally(() => {
-    isLoading.value = false // Set loading to false when data is fetched
-  })
-const hoodData = ref([])
-const BestsellerhoodData = ref([])
+onMounted(async () => {
+  try {
+    const [graphic, drop, basic] = await Promise.all([
+      useProductsByCategory('Graphic'),
+      useProductsByCategory('Drop'),
+      useProductsByCategory('Basic')
+    ])
 
+    teesData.value = graphic
+    CreatorsGraphicData.value = graphic.filter(item => item.is_creator_selector)
+    BestsellerteesData.value = graphic.filter(item => item.is_bestseller)
 
-// Fetch data using promises
-axios.get('https://marjan-backend-production.up.railway.app/products/?category=Drop')
-  .then((response) => {
-    hoodData.value = response.data.data.sort((a, b) => {
-      return b.id - a.id // For numeric values
-    })
-    CreatorsDropData.value = response.data.data.filter(item => item.is_creator_selector)
-    BestsellerhoodData.value = response.data.data.filter(item => item.is_bestseller)
+    CreatorsDropData.value = drop.filter(item => item.is_creator_selector)
+    BestsellerhoodData.value = drop.filter(item => item.is_bestseller)
 
-  })
-  .catch((error) => {
-    console.error('Error fetching data:', error)
-  })
-  .finally(() => {
-    isLoading.value = false // Set loading to false when data is fetched
-  })
-const sweatData = ref([])
-const BestsellersweatData = ref([])
-
-// Fetch data using promises
-axios.get('https://marjan-backend-production.up.railway.app/products/?category=Basic')
-  .then((response) => {
-    sweatData.value = response.data.data.sort((a, b) => {
-      return b.id - a.id // For numeric values
-    })
-    BestsellersweatData.value = response.data.data.filter(item => item.is_creator_selector)
-    CreatorsBasicData.value = response.data.data.filter(item => item.is_bestseller)
-  })
-  .catch((error) => {
-    console.error('Error fetching data:', error)
-  })
-  .finally(() => {
-    isLoading.value = false // Set loading to false when data is fetched
-  })
+    BestsellersweatData.value = basic.filter(item => item.is_bestseller)
+    CreatorsBasicData.value = basic.filter(item => item.is_creator_selector)
+  } catch (error) {
+    console.error('Error fetching products:', error)
+  } finally {
+    isLoading.value = false
+  }
+})
 </script>
 <style scoped>
 .main::-webkit-scrollbar {

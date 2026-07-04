@@ -92,10 +92,10 @@ const fetchProducts = async () => {
       collection => collection.slug === activeCollection.value
     )?.name || collectins[0].name
 
-    const response = await $fetch(
-      `https://marjan-backend-production.up.railway.app/products/?collection=${encodeURIComponent(activeCollectionName)}`
-    )
-    products.value = response.data
+    products.value = await useProducts({
+      collection: activeCollectionName,
+      limit: 200
+    })
     filterProducts()
   } catch (error) {
     console.error('Error fetching products:', error)

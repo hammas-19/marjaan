@@ -1,9 +1,16 @@
 export default defineNuxtConfig({
 	runtimeConfig: {
 		public: {
-			API_BASE_URL: process.env.STRAPI_API_URL,
-			API_READ_TOKEN: process.env.STRAPI_API_KEY
-		}
+			supabase: {
+				url: process.env.SUPABASE_URL,
+				key: process.env.SUPABASE_KEY
+			}
+		},
+		supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
+		upstashRedisUrl: process.env.UPSTASH_REDIS_REST_URL,
+		upstashRedisToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+		rateLimitWindowSeconds: Number(process.env.RATE_LIMIT_WINDOW_SECONDS || 60),
+		rateLimitMaxRequests: Number(process.env.RATE_LIMIT_MAX_REQUESTS || 100)
 	},
 	app: {
 		head: {
@@ -19,27 +26,22 @@ export default defineNuxtConfig({
 					content: 'width=device-width, initial-scale=1'
 				},
 				{
-					hid: 'description',
 					name: 'description',
 					content: 'Shop the latest in fashion at Rechik. Your one-stop online store for trendy outfits.'
 				},
 				{
-					hid: 'og:title',
 					property: 'og:title',
 					content: 'Rechik | Outfit levels unlocked'
 				},
 				{
-					hid: 'og:description',
 					property: 'og:description',
 					content: 'Shop the latest in fashion at Rechik. Your one-stop online store for trendy outfits.'
 				},
 				{
-					hid: 'og:image',
 					property: 'og:image',
 					content: '/Logo_Mascot_lite.webp'
 				},
 				{
-					hid: 'og:url',
 					property: 'og:url',
 					content: 'https://rechik.pk'
 				}
@@ -54,7 +56,7 @@ export default defineNuxtConfig({
 			script: [
 				{
 					type: 'application/ld+json',
-					children: JSON.stringify({
+					innerHTML: JSON.stringify({
 						'@context': 'http://schema.org',
 						'@type': 'WebSite',
 						name: 'Rechik',
@@ -71,8 +73,30 @@ export default defineNuxtConfig({
 	},
 	modules: [
 		'@nuxtjs/tailwindcss',
-		'@pinia/nuxt'
+		'@pinia/nuxt',
+		'pinia-plugin-persistedstate/nuxt',
+		'@nuxtjs/supabase'
 	],
+	supabase: {
+		url: process.env.SUPABASE_URL,
+		key: process.env.SUPABASE_KEY,
+		redirect: false,
+		client: {
+			auth: {
+				persistSession: true,
+				autoRefreshToken: true
+			}
+		}
+	},
+	nitro: {
+		storage: {
+			redis: {
+				driver: 'upstash',
+				url: process.env.UPSTASH_REDIS_REST_URL,
+				token: process.env.UPSTASH_REDIS_REST_TOKEN
+			}
+		}
+	},
 	tailwindcss: {
 		cssPath: '~/assets/css/main.css',
 		configPath: '~/tailwind.config.js',

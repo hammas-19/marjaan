@@ -1,0 +1,347 @@
+# Rechik Nuxt 3 + Supabase + Upstash Redis Architecture Plan
+
+**One-sentence summary:** Migrate the Rechik Nuxt 3 storefront from Strapi to Supabase, then add a shared Upstash Redis layer on Nitro for API response caching and IP-based rate limiting before requests ever reach Supabase.
+
+## 1. Architecture & Request Flow
+
+Every public API request will travel through the following layers in order:
+
+1. **Nuxt 3 client / frontend** calls a Nitro server route (e.g., `/api/products/featured`).
+2. **Server middleware (`server/middleware/rate-limit.ts`)** runs first and checks the client’s IP in Upstash Redis.
+   - If the limit is exceeded, return `429 Too Many Requests` immediately.
+   - Otherwise, continue and record the request.
+3. **Cached route handler** (`server/api/products/featured.get.ts`) checks Redis for a cached response using a deterministic key (e.g., `cache:products:featured:v1`).
+   - **Cache hit:** return the JSON payload directly to the client.
+   - **Cache miss:** continue to Supabase.
+4. **Supabase query** runs only on cache miss.
+5. **Response stored in Redis** with a TTL (e.g., 5 minutes) and returned to the client.
+6. **Mutating routes** (`POST / PUT / DELETE`) bypass the cache entirely and, on success, delete the relevant cache keys to keep Redis fresh.
+
+This flow protects both Supabase quotas and Netlify Functions execution time.
+
+## 2. Configuration & Stack Setup
+
+### 2.1 Dependencies to install
+
+```bash
+npm install @supabase/supabase-js @upstash/redis
+npm install -D @nuxtjs/supabase
+```
+
+### 2.2 Environment variables
+
+Add these to `.env` (and to Netlify environment settings):
+
+```env
+# Supabase
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key  # Only for server-side admin operations
+
+# Upstash Redis
+UPSTASH_REDIS_REST_URL=https://your-url.upstash.io
+UPSTASH_REDIS_REST_TOKEN=your-token
+
+# Rate limiting
+RATE_LIMIT_WINDOW_SECONDS=60
+RATE_LIMIT_MAX_REQUESTS=100
+```
+
+### 2.3 `nuxt.config.ts` updates
+
+```ts
+export default defineNuxtConfig({
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    '@nuxtjs/supabase'
+  ],
+  runtimeConfig: {
+    public: {
+      // Remove Strapi keys after migration
+    },
+    supabase: {
+      url: process.env.SUPABASE_URL,
+      key: process.env.SUPABASE_KEY
+    },
+    upstashRedisUrl: process.env.UPSTASH_REDIS_REST_URL,
+    upstashRedisToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+    rateLimitWindowSeconds: Number(process.env.RATE_LIMIT_WINDOW_SECONDS || 60),
+    rateLimitMaxRequests: Number(process.env.RATE_LIMIT_MAX_REQUESTS || 100)
+  },
+  nitro: {
+    storage: {
+      // Named storage mount for cache and rate limiting
+      redis: {
+        driver: 'upstash',
+        url: process.env.UPSTASH_REDIS_REST_URL,
+        token: process.env.UPSTASH_REDIS_REST_TOKEN
+      }
+    }
+  },
+  // ...existing tailwindcss/app config
+})
+```
+
+Note: `nitro.storage` gives us `useStorage('redis')` anywhere in Nitro server code.
+
+## 3. Code Blueprints
+
+### 3.1 Shared Redis client helper
+
+Create a reusable Upstash Redis client wrapper:
+
+```ts
+// server/utils/redis.ts
+import { Redis } from '@upstash/redis'
+
+export const useUpstashRedis = () => {
+  const config = useRuntimeConfig()
+  return new Redis({
+    url: config.upstashRedisUrl,
+    token: config.upstashRedisToken
+  })
+}
+```
+
+### 3.2 IP-based rate limiting middleware
+
+```ts
+// server/middleware/rate-limit.ts
+export default defineEventHandler(async (event) => {
+  // Skip rate limiting for non-API routes or static assets
+  if (!event.path.startsWith('/api/')) return
+
+  const config = useRuntimeConfig()
+  const redis = useUpstashRedis()
+  const ip = getRequestIP(event, { xForwardedFor: true }) || 'unknown'
+
+  const key = `rate-limit:ip:${ip}`
+  const windowSeconds = config.rateLimitWindowSeconds
+  const maxRequests = config.rateLimitMaxRequests
+
+  const current = await redis.incr(key)
+  if (current === 1) {
+    await redis.expire(key, windowSeconds)
+  }
+
+  if (current > maxRequests) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: 'Too Many Requests'
+    })
+  }
+})
+```
+
+### 3.3 Cached Supabase server route
+
+```ts
+// server/api/products/featured.get.ts
+import { serverSupabaseClient } from '#supabase/server'
+
+export default defineCachedEventHandler(
+  async (event) => {
+    const client = await serverSupabaseClient(event)
+
+    const { data, error } = await client
+      .from('products')
+      .select('id, name, price, image_url')
+      .eq('featured', true)
+      .limit(20)
+
+    if (error) {
+      throw createError({
+        statusCode: 500,
+        statusMessage: error.message
+      })
+    }
+
+    return data
+  },
+  {
+    // Nitro will use the default storage; point to our redis mount
+    base: 'redis',
+    name: 'products-featured',
+    getKey: (event) => {
+      // Deterministic cache key; add query params if needed
+      return 'featured'
+    },
+    maxAge: 60 * 5, // 5 minutes
+    staleMaxAge: 60 * 60, // 1 hour stale-while-revalidate
+    varies: ['Accept-Encoding'] // Optional
+  }
+)
+```
+
+> **Alternative:** If `defineCachedEventHandler` proves too rigid for a route (e.g., cache key depends on auth state), use a manual pattern:
+
+```ts
+// server/api/products/manual-cache.get.ts
+import { serverSupabaseClient } from '#supabase/server'
+
+export default defineEventHandler(async (event) => {
+  const storage = useStorage('redis')
+  const cacheKey = 'cache:products:featured'
+
+  const cached = await storage.getItem(cacheKey)
+  if (cached) {
+    return cached
+  }
+
+  const client = await serverSupabaseClient(event)
+  const { data, error } = await client
+    .from('products')
+    .select('*')
+    .limit(20)
+
+  if (error) {
+    throw createError({ statusCode: 500, statusMessage: error.message })
+  }
+
+  await storage.setItem(cacheKey, data, { ttl: 60 * 5 })
+  return data
+})
+```
+
+### 3.4 Mutation route with cache invalidation
+
+```ts
+// server/api/products/[id].put.ts
+import { serverSupabaseClient } from '#supabase/server'
+
+export default defineEventHandler(async (event) => {
+  const storage = useStorage('redis')
+  const client = await serverSupabaseClient(event)
+  const body = await readBody(event)
+  const id = getRouterParam(event, 'id')
+
+  const { data, error } = await client
+    .from('products')
+    .update(body)
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) {
+    throw createError({ statusCode: 500, statusMessage: error.message })
+  }
+
+  // Invalidate cache keys that include this product
+  await storage.removeItem('cache:products:featured')
+  await storage.removeItem(`cache:products:detail:${id}`)
+
+  return data
+})
+```
+
+### 3.5 Type-safe helper for cache keys
+
+```ts
+// server/utils/cache-keys.ts
+export const CacheKeys = {
+  products: {
+    featured: 'cache:products:featured',
+    list: (filters: string) => `cache:products:list:${filters}`,
+    detail: (id: string) => `cache:products:detail:${id}`
+  },
+  categories: {
+    all: 'cache:categories:all'
+  }
+} as const
+```
+
+## 4. Cache Invalidation Strategy
+
+Use a simple, pragmatic invalidation model:
+
+- **TTL-based expiry:** All cached GET responses set a `maxAge` / `ttl`. Expensive but rarely-changing data (e.g., categories) can have a longer TTL (e.g., 1 hour); volatile data (e.g., inventory counts) a short TTL (e.g., 30 seconds).
+- **Key invalidation on mutations:** After every `POST`, `PUT`, `PATCH`, or `DELETE` on a resource, delete the cache keys that depend on that resource. For example, updating a product clears both the product detail and featured/list caches.
+- **Cache version prefixes:** If a deployment changes the data shape, bump the cache key prefix (e.g., `cache:products:featured:v2`) so old cached payloads are ignored naturally.
+- **Optional:** Add a `/api/admin/cache/clear` admin route that removes all keys matching `cache:*` for emergency manual clearing.
+
+Avoid building real-time database triggers to Redis at this stage; they add complexity and are rarely needed for a storefront cache.
+
+## 5. Recommended Folder Structure
+
+```
+/Users/ubaid/Desktop/Hammas/marjaan
+├── nuxt.config.ts
+├── package.json
+├── .env
+├── composables/
+│   └── useProducts.ts          # Client-side composables calling /api/...
+├── pages/
+│   ├── index.vue
+│   └── products/
+│       └── [id].vue
+├── server/
+│   ├── middleware/
+│   │   └── rate-limit.ts       # IP-based rate limiting
+│   ├── utils/
+│   │   ├── redis.ts            # Upstash Redis client
+│   │   ├── cache-keys.ts       # Centralized cache key constants
+│   │   └── supabase.ts         # Optional: custom server-side helpers
+│   ├── api/
+│   │   ├── products/
+│   │   │   ├── featured.get.ts # Cached featured products
+│   │   │   ├── index.get.ts    # Cached product list
+│   │   │   ├── [id].get.ts     # Cached product detail
+│   │   │   └── [id].put.ts     # Mutation + cache invalidation
+│   │   └── admin/
+│   │       └── cache/
+│   │           └── clear.post.ts
+│   └── plugins/
+│       └── nitro-plugin.ts     # Optional: global Nitro hooks
+└── types/
+    └── product.ts              # Shared TypeScript types
+```
+
+## 6. Step-by-Step Implementation Plan
+
+1. **Bootstrap Supabase:**
+   - Create a Supabase project.
+   - Set up the `products`, `categories`, and `orders` tables matching the existing Strapi schema.
+   - Migrate product/media data from Strapi to Supabase Storage.
+
+2. **Install dependencies:**
+   - Run `npm install @supabase/supabase-js @upstash/redis` and `npm install -D @nuxtjs/supabase`.
+
+3. **Configure environment variables:**
+   - Add Supabase and Upstash keys to `.env` and Netlify dashboard.
+
+4. **Update `nuxt.config.ts`:**
+   - Add `@nuxtjs/supabase` to `modules`.
+   - Add `runtimeConfig` for Supabase and Upstash.
+   - Add `nitro.storage.redis` with the `upstash` driver.
+
+5. **Build Redis utilities:**
+   - Create `server/utils/redis.ts` and `server/utils/cache-keys.ts`.
+
+6. **Implement rate limiting:**
+   - Create `server/middleware/rate-limit.ts` with IP-based sliding/fixed-window logic.
+
+7. **Build cached routes:**
+   - Convert the most-read endpoints (e.g., featured products, product lists, product detail) to cached Nitro routes.
+   - Use `defineCachedEventHandler` for straightforward routes; manual `useStorage('redis')` for routes needing custom keys.
+
+8. **Add mutation invalidation:**
+   - In `POST / PUT / DELETE` routes, remove affected cache keys after successful writes.
+
+9. **Replace client-side Strapi calls:**
+   - Update `composables/` and `pages/` to call the new `/api/*` routes instead of `STRAPI_API_URL`.
+
+10. **Test and deploy:**
+    - Test locally with `npm run dev`.
+    - Verify cache hits and rate limits in the Upstash dashboard.
+    - Deploy to Netlify and confirm environment variables are set in production.
+
+11. **Cleanup:**
+    - Remove Strapi-specific runtime config, composables, and dependencies once the migration is verified.
+
+## 7. Key Decisions & Trade-offs
+
+- **Upstash over direct Redis:** Chosen because Netlify Functions run serverless; Upstash Redis uses REST and avoids long-lived TCP connections.
+- **IP-only rate limiting:** Simpler and sufficient for a public storefront; add user-ID-based limiting later if needed.
+- **Nitro storage abstraction:** Using `useStorage('redis')` keeps the code portable; switching to a different driver later only requires `nuxt.config.ts` changes.
+- **Manual invalidation over Supabase webhooks:** Reduces complexity and avoids extra infrastructure; works well for standard CRUD storefronts.

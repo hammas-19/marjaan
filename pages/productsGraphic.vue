@@ -4,8 +4,8 @@
     {{ teesData }}
 </pre> -->
     <!-- Gallery -->
-    <section class="max-w-7xl mx-auto px-2 py-10">
-      <div class="grid sm:grid-cols-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center md:gap-10 gap-1">
+    <section class="mx-auto px-2 md:px-5 py-10">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(170px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-3 md:gap-5 justify-items-center">
         <!-- The poster -->
         <div
           class="relative bg-moss rounded-3xl w-full max-w-3xl overflow-hidden opacity-90 hover:opacity-100 transition-all duration-300 col-span-2 md:h-[385px]">
@@ -34,21 +34,13 @@
   </div>
 </template>
 <script setup>
-import axios from 'axios'
-
 const teesData = ref([])
 
-// Fetch the data and sort in descending order
-axios.get('https://marjan-backend-production.up.railway.app/products/?category=Graphic')
-  .then(response => {
-    teesData.value = response.data.data.sort((a, b) => {
-      // Replace 'property' with the actual property you want to sort by
-      return b.id - a.id // For numeric values
-      // For string properties, use localeCompare:
-      // return b.property.localeCompare(a.property)
-    })
-  })
-  .catch(error => {
+onMounted(async () => {
+  try {
+    teesData.value = await useProductsByCategory('Graphic')
+  } catch (error) {
     console.error('Error fetching data:', error)
-  })
+  }
+})
 </script>

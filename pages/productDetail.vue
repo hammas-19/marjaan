@@ -241,7 +241,11 @@ const apiData = ref()
 //     apiData.value = response.data.data;
 // }).catch((err) => {
 // });
-useStrapi('womens?populate=image').then((response) => {
-  apiData.value = response.data.data;
+onMounted(async () => {
+  try {
+    apiData.value = await useFeaturedProducts()
+  } catch (err) {
+    console.error('Error fetching data:', err)
+  }
 })
 </script>
